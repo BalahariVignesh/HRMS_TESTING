@@ -1,0 +1,60 @@
+package verticalMenuPersonalInfo;
+
+
+import org.planning.test.jdbc.Employee;
+import org.planning.test.jdbc.TestDao;
+
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import loginController.LoginController;
+
+public class OfficeInfoController {
+	private final LoginController contrl = new LoginController();
+	Employee epass = contrl.getEmployee();
+	
+
+    @FXML
+    private JFXTextField EmployeeLevel;
+
+    @FXML
+    private JFXTextField EmployeeBranch;
+
+    @FXML
+    private JFXTextField EmployeeStatus;
+
+    @FXML
+    private JFXTextField EmployeeManager;
+
+    @FXML
+    private JFXTextField EmployeeProjectName;
+
+    @FXML
+    private JFXButton Cancel_Office_btn;
+
+    @FXML
+    void CancelOinfo(ActionEvent event) {
+
+    }
+	    
+	    @FXML
+	    public void initialize() {
+	    	Employee e = new Employee();
+	    	System.out.println("Inside Personal Info Controller"+epass.getEMP_ID());
+      	    e.setEMP_ID(epass.getEMP_ID());
+      	    TestDao t = new TestDao();
+      	    Employee enew = t.fetchEmployeePersonalDetails(e);
+      	    System.out.println(e.getFNAME());
+//      	    FNAME.setText(enew.getFNAME());
+//      	    System.out.println(enew.getFNAME());
+//      	    MNAME.setText(enew.getMNAME());
+//      	    LNAME.setText(enew.getLNAME());
+//      	    DOB.setText(String.valueOf(enew.getDOB()));
+//      	    SSN.setText(String.valueOf(enew.get_sno()));
+//      	    MaritalStatus.setText(enew.getMAR());
+	    }
+
+}

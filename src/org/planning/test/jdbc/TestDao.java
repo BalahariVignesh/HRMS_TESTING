@@ -234,7 +234,7 @@ int rs;
 			try {
 				System.out.println("Inside presentaddressinfo function");
 				Connection Con = DriverManager.getConnection("jdbc:mysql://localhost:3307/hr_database","root","root");
-				String sql = "Select TYPETABLE.VAL AS 'ADDRESS TYPE', max(ADD_MAP.S_DATE) as 'START DATE', ADDRESS.ADDR, ADDRESS.STREET, ADDRESS.CITY, ADDRESS.COUNTRY, ADDRESS.ZIP from ADD_MAP LEFT OUTER JOIN ADDRESS ON ADD_MAP.ADD_ID = ADDRESS.ADD_ID LEFT OUTER JOIN TYPETABLE ON ADDRESS.ADD_TYP = TYPETABLE.TYPE_ID WHERE EMP_ID = ? AND add_typ = 'AD_P'";//change to ad_c later now changed to ad_P temporarily for testing
+				String sql = "Select TYPETABLE.VAL AS 'ADDRESS TYPE', max(ADD_MAP.S_DATE) as 'START DATE', ADDRESS.ADDR, ADDRESS.STREET, ADDRESS.CITY, ADDRESS.COUNTRY, ADDRESS.ZIP from ADD_MAP LEFT OUTER JOIN ADDRESS ON ADD_MAP.ADD_ID = ADDRESS.ADD_ID LEFT OUTER JOIN TYPETABLE ON ADDRESS.ADD_TYP = TYPETABLE.TYPE_ID WHERE EMP_ID = ? AND add_typ = 'AD_C'";
 				PreparedStatement ps = Con.prepareStatement(sql);
 				System.out.println("Passed login NAME is "+e.getEMP_ID());
 				ps.setString(1, String.valueOf(e.getEMP_ID()));
@@ -259,5 +259,36 @@ int rs;
 			   		}
 				return elocal;
 	}
+		//function for fetching office info status,level,proj manager...
+				public Employee officeinfo(Employee e)throws SQLException{
+					Employee elocal = new Employee();
+					try {
+						System.out.println("Inside officeinfo function");
+						Connection Con = DriverManager.getConnection("jdbc:mysql://localhost:3307/hr_database","root","root");
+						String sql = "Select TYPETABLE.VAL AS 'ADDRESS TYPE', max(ADD_MAP.S_DATE) as 'START DATE', ADDRESS.ADDR, ADDRESS.STREET, ADDRESS.CITY, ADDRESS.COUNTRY, ADDRESS.ZIP from ADD_MAP LEFT OUTER JOIN ADDRESS ON ADD_MAP.ADD_ID = ADDRESS.ADD_ID LEFT OUTER JOIN TYPETABLE ON ADDRESS.ADD_TYP = TYPETABLE.TYPE_ID WHERE EMP_ID = ? AND add_typ = 'AD_C'";
+						PreparedStatement ps = Con.prepareStatement(sql);
+						System.out.println("Passed login NAME is "+e.getEMP_ID());
+						ps.setString(1, String.valueOf(e.getEMP_ID()));
+						ResultSet rs= ps.executeQuery();
+						while(rs.next()){
+							elocal.setPRESENT_ADDR(rs.getString("ADDR"));
+							System.out.println("ADDR is "+elocal.getPRESENT_ADDR());
+							elocal.setPRESENT_STREET(rs.getString("STREET"));
+							System.out.println("STREET is "+elocal.getPRESENT_STREET());
+							elocal.setPRESENT_CITY(rs.getString("CITY"));
+							System.out.println("CITY is "+elocal.getPRESENT_CITY());
+							elocal.setPRESENT_COUNTRY(rs.getString("COUNTRY"));
+							System.out.println("Country is "+elocal.getPRESENT_COUNTRY());
+							elocal.setPRESENT_ZIP(Integer.parseInt(rs.getString("ZIP")));
+							System.out.println("ZIP is "+elocal.getPRESENT_ZIP());
+							}
+						rs.close();
+						Con.close();
+						}
+					catch(SQLException ex) {
+						  	System.out.println(ex); 
+					   		}
+						return elocal;
+			}		
 }
 

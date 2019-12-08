@@ -19,8 +19,8 @@ public class ContactDAO implements DAO {
     	  e.setRATING(rs.getInt(11));
     	  e.setC_MAN(rs.getInt(12));
     	  e.setC_PROJ(rs.getInt(13));
-    	  e.setCOUNTRY(rs.getString(14));
-    	  e.setCITY(rs.getString(15));
+    	//  e.setCOUNTRY(rs.getString(14));
+    	 // e.setCITY(rs.getString(15));
 //    	  e.setZIP(rs.getInt());
 //    	  e.setCONTACT(rs.getInt());
 //    	  e.setEMAIL(rs.getString());
@@ -61,10 +61,10 @@ public class ContactDAO implements DAO {
 		   ps.setInt(11,e.getRATING());
 		   ps.setInt(12,e.getC_MAN());
 		   ps.setInt(13, e.getC_PROJ());
-		   ps.setString(14, e.getCITY());
-		   ps.setString(15, e.getCOUNTRY());
+		 //  ps.setString(14, e.getCITY());
+		   //ps.setString(15, e.getCOUNTRY());
 		   ps.setInt(16, e.getCONTACT());
-		   ps.setInt(17, e.getZIP());
+		  // ps.setInt(17, e.getZIP());
 		   int rowsAffected = ps.executeUpdate();
 		   
 		   System.out.println(rowsAffected+"Rows affected");
