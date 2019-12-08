@@ -30,7 +30,8 @@ public class Employee {
 	
 	 // .matches('.{10}')
 	
-	private String EMAIL;
+	private String PERSONAL_EMAIL;
+	private String OFFICIAL_EMAIL;
 	
 	//Present Addressinfo
 	private String PRESENT_ADDR;
@@ -304,12 +305,20 @@ public class Employee {
 		CONTACT = cONTACT;
 	}
 
-	public String getEMAIL() {
-		return EMAIL;
+	public String getPERSONAL_EMAIL() {
+		return PERSONAL_EMAIL;
 	}
 
-	public void setEMAIL(String eMAIL) {
-		EMAIL = eMAIL;
+	public void setPERSONAL_EMAIL(String eMAIL) {
+		PERSONAL_EMAIL = eMAIL;
+	}
+
+	public String getOFFICIAL_EMAIL() {
+		return OFFICIAL_EMAIL;
+	}
+
+	public void setOFFICIAL_EMAIL(String oFFICIAL_EMAIL) {
+		OFFICIAL_EMAIL = oFFICIAL_EMAIL;
 	}
 
 	public static void main(String[] args) {

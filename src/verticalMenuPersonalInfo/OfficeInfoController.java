@@ -16,29 +16,36 @@ public class OfficeInfoController {
 	private final LoginController contrl = new LoginController();
 	Employee epass = contrl.getEmployee();
 	
+	 @FXML
+	    private JFXTextField PersonalNo_Display;
 
-    @FXML
-    private JFXTextField EmployeeLevel;
+	    @FXML
+	    private JFXTextField OfficeNo_Display;
 
-    @FXML
-    private JFXTextField EmployeeBranch;
+	    @FXML
+	    private JFXTextField EmergencyNo_field;
 
-    @FXML
-    private JFXTextField EmployeeStatus;
+	    @FXML
+	    private JFXButton Edit_Contact_btn;
 
-    @FXML
-    private JFXTextField EmployeeManager;
+	    @FXML
+	    private JFXTextField PersonalEmail;
 
-    @FXML
-    private JFXTextField EmployeeProjectName;
+	    @FXML
+	    private JFXTextField OfficialEmail;
 
-    @FXML
-    private JFXButton Cancel_Office_btn;
+	    @FXML
+	    private JFXButton Edit_Email_btn;
 
-    @FXML
-    void CancelOinfo(ActionEvent event) {
+	    @FXML
+	    void EditContactDetails(ActionEvent event) {
 
-    }
+	    }
+
+	    @FXML
+	    void EditEmailId(ActionEvent event) {
+
+	    }
 	    
 	    @FXML
 	    public void initialize() {

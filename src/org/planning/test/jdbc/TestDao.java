@@ -129,10 +129,28 @@ int rs;
 							System.out.println("Office no is"+elocal.getOCONTACT());
 						}
 						
+						
 //						elocal.setCONTACT(Integer.parseInt(rs.getString("CONTACT")));
 //						//elocal.setPWD(rs.getString("PSW"));
 //						System.out.println("Personal Contact from DB is "+elocal.getCONTACT());
 					}
+					String sql2 = "Select EMAIL, EMAIL_TYP from EMAIL WHERE EMP_ID = ? ";
+					ps = Con.prepareStatement(sql2);
+					System.out.println("Running query 2 for fetching email id ,Passed login NAME is "+e.getEMP_ID());
+					ps.setString(1, String.valueOf(e.getEMP_ID()));
+					rs= ps.executeQuery();
+					while(rs.next()){
+						if(rs.getString("EMAIL_TYP").matches("C_P"))
+						{
+							elocal.setPERSONAL_EMAIL(rs.getString("EMAIL"));
+							System.out.println("Personal EMAIL is"+elocal.getPERSONAL_EMAIL());
+						}
+						else if(rs.getString("EMAIL_TYP").matches("C_O"))
+						{
+							elocal.setOFFICIAL_EMAIL(rs.getString("EMAIL"));
+							System.out.println("OFFICIAL EMAIL is"+elocal.getOFFICIAL_EMAIL());
+						}}
+					
 					rs.close();
 					Con.close();
 					}
@@ -260,6 +278,7 @@ int rs;
 				return elocal;
 	}
 		//function for fetching office info status,level,proj manager...
+		//not yet completed
 				public Employee officeinfo(Employee e)throws SQLException{
 					Employee elocal = new Employee();
 					try {
@@ -289,6 +308,28 @@ int rs;
 						  	System.out.println(ex); 
 					   		}
 						return elocal;
-			}		
+			}
+			//To edit the personal, emergency and office contact number.
+			public int editemail(Employee e)throws SQLException{
+				try {
+					System.out.println("Inside editcontactnumber function");
+					Connection Con = DriverManager.getConnection("jdbc:mysql://localhost:3307/hr_database","root","root");
+					String sql = "UPDATE EMAIL SET EMAIL = '?' WHERE EMP_ID =? and EMAIL_TYP = 'C_P'";
+					PreparedStatement ps = Con.prepareStatement(sql);
+					System.out.println("Passed login NAME is "+e.getEMP_ID());
+					System.out.println("flag1");
+					ps.setString(1,e.getPERSONAL_EMAIL());
+					System.out.println("flag2");
+					ps.setString(2,String.valueOf(e.getEMP_ID()));
+					System.out.println("flag3");
+					
+					rs= ps.executeUpdate();
+					Con.close();
+					}
+					catch(SQLException ex) {
+					  	System.out.println(ex); 
+					  		}
+					return rs;
+			}
 }
 

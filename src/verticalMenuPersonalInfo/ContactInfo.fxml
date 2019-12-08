@@ -43,11 +43,24 @@
                               <Font size="24.0" />
                            </font>
                         </Label>
+                        <Label alignment="CENTER" layoutX="10.0" layoutY="136.0" prefHeight="63.0" prefWidth="252.0" text="PERSONAL EMAIL ID">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="52.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="10.0" layoutY="251.0" prefHeight="63.0" prefWidth="252.0" text="OFFICIAL EMAIL ID">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
                      </children>
                   </VBox>
                </children>
                <GridPane.margin>
-                  <Insets top="105.0" />
+                  <Insets top="50.0" />
                </GridPane.margin>
             </HBox>
             <HBox prefHeight="385.0" prefWidth="252.0" GridPane.columnIndex="1">
@@ -77,12 +90,45 @@
                            <padding>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </padding>
+                           <VBox.margin>
+                              <Insets top="6.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXButton fx:id="Edit_Contact_btn" buttonType="RAISED" onAction="#EditContactDetails" prefHeight="39.0" prefWidth="96.0" style="-fx-background-color: #FFAC2E;" text="EDIT" textFill="#f5f2f2">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <graphic>
+                              <FontAwesomeIconView fill="#eee5e5" glyphName="PENCIL" size="20.0" />
+                           </graphic>
+                           <VBox.margin>
+                              <Insets left="130.0" top="25.0" />
+                           </VBox.margin>
+                        </JFXButton>
+                        <JFXTextField fx:id="PersonalEmail" layoutX="10.0" layoutY="10.0" prefHeight="58.0" prefWidth="542.0">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </JFXTextField>
+                        <JFXTextField fx:id="OfficialEmail" layoutX="10.0" layoutY="254.0" prefHeight="58.0" prefWidth="542.0">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
                         </JFXTextField>
                      </children>
                   </VBox>
                </children>
                <GridPane.margin>
-                  <Insets top="105.0" />
+                  <Insets top="44.0" />
                </GridPane.margin>
             </HBox>
          </children>
@@ -97,21 +143,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <JFXButton fx:id="Cancel_Contact_btn" alignment="CENTER" buttonType="RAISED" prefHeight="39.0" prefWidth="113.0" style="-fx-background-color: #696969;" text="CANCEL" textFill="#f5f2f2" GridPane.columnIndex="2">
-               <font>
-                  <Font size="18.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <graphic>
-                  <FontAwesomeIconView fill="#eee5e5" glyphName="HOME" size="20.0" />
-               </graphic>
-               <GridPane.margin>
-                  <Insets left="32.0" />
-               </GridPane.margin>
-            </JFXButton>
-            <JFXButton fx:id="Edit_Contact_btn" buttonType="RAISED" prefHeight="39.0" prefWidth="96.0" style="-fx-background-color: #FFAC2E;" text="EDIT" textFill="#f5f2f2" GridPane.columnIndex="1">
+            <JFXButton fx:id="Edit_Email_btn" buttonType="RAISED" onAction="#EditEmailId" prefHeight="39.0" prefWidth="96.0" style="-fx-background-color: #FFAC2E;" text="EDIT" textFill="#f5f2f2" GridPane.columnIndex="2">
                <font>
                   <Font size="18.0" />
                </font>

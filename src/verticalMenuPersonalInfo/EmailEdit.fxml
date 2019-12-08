@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="557.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="verticalMenuPersonalInfo.ContactEditController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="557.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="verticalMenuPersonalInfo.EmailEditController">
    <children>
       <GridPane prefHeight="490.0" prefWidth="500.0">
         <columnConstraints>
@@ -29,24 +29,14 @@
                <children>
                   <VBox prefHeight="490.0" prefWidth="305.0">
                      <children>
-                        <Label fx:id="Mobile" alignment="CENTER" prefHeight="63.0" prefWidth="252.0" text="PERSONAL NO.">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="Landline" alignment="CENTER" prefHeight="63.0" prefWidth="252.0" text="OFFICE NO.">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="Email" alignment="CENTER" prefHeight="63.0" prefWidth="252.0" text="EMERGENCY NO.">
+                        <Label alignment="CENTER" prefHeight="63.0" prefWidth="252.0" text="PERSONAL EMAIL ID">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Label>
                      </children>
                      <HBox.margin>
-                        <Insets top="87.0" />
+                        <Insets top="120.0" />
                      </HBox.margin>
                   </VBox>
                </children>
@@ -58,23 +48,7 @@
                <children>
                   <VBox prefHeight="490.0" prefWidth="239.0">
                      <children>
-                        <JFXTextField fx:id="PersonalNoEdit" prefHeight="58.0" prefWidth="542.0">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                           <padding>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                           </padding>
-                        </JFXTextField>
-                        <JFXTextField fx:id="OfficeNoEdit" layoutX="10.0" layoutY="10.0" prefHeight="58.0" prefWidth="542.0">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                           <padding>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                           </padding>
-                        </JFXTextField>
-                        <JFXTextField fx:id="OfficeNoEdit" layoutX="10.0" layoutY="68.0" prefHeight="58.0" prefWidth="542.0">
+                        <JFXTextField fx:id="PersonalEmailEdit" prefHeight="58.0" prefWidth="542.0">
                            <font>
                               <Font size="24.0" />
                            </font>
@@ -86,7 +60,7 @@
                   </VBox>
                </children>
                <GridPane.margin>
-                  <Insets top="148.0" />
+                  <Insets top="187.0" />
                </GridPane.margin>
             </HBox>
          </children>
@@ -115,7 +89,7 @@
                   <Insets left="32.0" />
                </GridPane.margin>
             </JFXButton>
-            <JFXButton fx:id="SAVE_Contact" buttonType="RAISED" onAction="#DisplayCEdit" prefHeight="39.0" prefWidth="96.0" style="-fx-background-color: #008000;" text="SAVE" textFill="#f5f2f2" GridPane.columnIndex="1">
+            <JFXButton fx:id="SAVE_Email" buttonType="RAISED" onAction="#DisplayEEdit" prefHeight="39.0" prefWidth="96.0" style="-fx-background-color: #008000;" text="SAVE" textFill="#f5f2f2" GridPane.columnIndex="1">
                <font>
                   <Font size="18.0" />
                </font>
