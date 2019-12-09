@@ -8,7 +8,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
 
+import loginController.LoginController;
+import org.planning.test.jdbc.*;
+
 public class AddNewEmployeePageController{
+	private final LoginController contrl = new LoginController();
+	Employee epass = contrl.getEmployee();
 	
 	@FXML
     private JFXTextField NewStreet;
@@ -69,7 +74,7 @@ public class AddNewEmployeePageController{
 
     @FXML
     void AddNewEmployee(ActionEvent event) {
-
+    	System.out.println("Hiiiiiiiiiiiiiiiiiiiii");
     }
 
 }
