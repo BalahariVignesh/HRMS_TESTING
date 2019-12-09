@@ -7,7 +7,7 @@ public class Driver {
 		// TODO Auto-generated method stub
 		try {
 			//connection to db
-			Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3307/hr_database","root","root");
+			Connection myConn = MySQLConnUtils.getMySQLConnection();
 			
 			//statement
 			Statement myStmt = myConn.createStatement();
