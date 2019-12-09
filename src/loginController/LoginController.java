@@ -103,6 +103,23 @@ public class LoginController {
     		if(acctype.equals("AC_HR"))
         	{
         		System.out.println("Logged in as HR");
+        		Stage stage = (Stage) CLOSE.getScene().getWindow();
+        		System.out.println("flag");
+               	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/HrManagerPages/HrManagerAndEmployeePage.fxml"));
+               	System.out.println("flag2");
+        	    Parent root1 = (Parent) fxmlLoader.load();
+        	    System.out.println("flag3");
+        	    Stage stagelocal = new Stage();
+        	    System.out.println("flag4");
+        	    stagelocal.initModality(Modality.APPLICATION_MODAL);
+        	    System.out.println("flag5");
+        	    stagelocal.initStyle(StageStyle.UNDECORATED);
+        	    System.out.println("flag6");
+        	    stagelocal.setScene(new Scene(root1));
+        	    System.out.println("flag7");
+        	    stagelocal.show();
+        	    System.out.println("flag8");
+        	    stage.close();
         	}
         	else if(acctype.equals("AC_PMO"))
         	{
