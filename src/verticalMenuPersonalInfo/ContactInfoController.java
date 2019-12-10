@@ -53,7 +53,7 @@ public class ContactInfoController {
 
     @FXML
     void EditContactDetails(ActionEvent event) throws IOException {
-		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/verticalMenuPersonalInfo/ContaactEdit.fxml"));
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/verticalMenuPersonalInfo/ContactEdit.fxml"));
 	    Parent root1 = (Parent) fxmlLoader.load();
 	    Stage stage = new Stage();
 	    stage.initModality(Modality.APPLICATION_MODAL);
