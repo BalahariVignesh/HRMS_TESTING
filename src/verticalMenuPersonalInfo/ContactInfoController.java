@@ -75,7 +75,7 @@ public class ContactInfoController {
     }
 
     @FXML
-    public void initialize() throws SQLException {
+    public void initialize() throws SQLException, ClassNotFoundException {
     	Employee e = new Employee();
     	System.out.println("Inside Contact Info Controller"+epass.getEMP_ID());
   	    e.setEMP_ID(epass.getEMP_ID());

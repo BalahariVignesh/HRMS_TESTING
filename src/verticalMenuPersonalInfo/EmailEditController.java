@@ -40,7 +40,7 @@ public class EmailEditController {
 	    }
 
 	    @FXML
-	    void DisplayEEdit(ActionEvent event) throws SQLException {
+	    void DisplayEEdit(ActionEvent event) throws SQLException, ClassNotFoundException {
 	    	Employee e = new Employee();
 	    	TestDao t = new TestDao();
 	    	e.setEMP_ID(epass.getEMP_ID());

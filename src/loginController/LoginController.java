@@ -53,7 +53,7 @@ public class LoginController {
     }
 
     @FXML
-    void Login(ActionEvent event) throws SQLException, IOException {
+    void Login(ActionEvent event) throws SQLException, IOException, ClassNotFoundException {
     	if (loginField.getText().isEmpty() && passwordField.getText().isEmpty()) 
     	{
     		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/loginController/LoginAndPassword.fxml"));

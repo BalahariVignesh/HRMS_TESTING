@@ -61,12 +61,12 @@ int rs;
 				return elocal;
 			}
 	//login function is called by Login Controller
-		public Employee login(Employee e)throws SQLException {
+		public Employee login(Employee e)throws SQLException, ClassNotFoundException {
 				Employee elocal = new Employee();
 				//boolean login = true; 
 				try {
 				   System.out.println("Inside LOGIN function");
-				   Connection Con = DriverManager.getConnection("jdbc:mysql://localhost:3307/hr_database","root","root");
+				   Connection Con = MySQLConnUtils.getMySQLConnection();
 				   String sql = "SELECT * FROM logon WHERE EMP_ID=?";
 				   PreparedStatement ps = Con.prepareStatement(sql);
 				   System.out.println("Passed login NAME is "+e.getEMP_ID());
@@ -100,11 +100,11 @@ int rs;
 				return elocal;
 				}
 		//contactinfo is called by ContactInfoController
-		public Employee contactinfo(Employee e)throws SQLException{
+		public Employee contactinfo(Employee e)throws SQLException, ClassNotFoundException{
 				Employee elocal = new Employee();
 				try {
 					System.out.println("Inside contactinfo function");
-					Connection Con = DriverManager.getConnection("jdbc:mysql://localhost:3307/hr_database","root","root");
+					Connection Con = MySQLConnUtils.getMySQLConnection();
 					
 					String sql = "select Contact,con_typ from Contact where emp_id=?";
 					
@@ -159,12 +159,12 @@ int rs;
 				   		}
 					return elocal;
 		}
-		public int contactedit(Employee e)throws SQLException{
+		public int contactedit(Employee e)throws SQLException, ClassNotFoundException{
 			;
 			//Employee elocal = new Employee();
 			try {
 				System.out.println("Inside contactedit function");
-				Connection Con = DriverManager.getConnection("jdbc:mysql://localhost:3307/hr_database","root","root");
+				Connection Con = MySQLConnUtils.getMySQLConnection();
 				String sql = "UPDATE EMPLOYEE SET MNAME = ? , LNAME = ? , MAR = ? WHERE EMP_ID = ?";
 				PreparedStatement ps = Con.prepareStatement(sql);
 				System.out.println("Passed login NAME is "+e.getEMP_ID());
@@ -185,11 +185,11 @@ int rs;
 				return rs;
 	}
 		//function for getting office address info
-		public Employee officeaddressinfo(Employee e)throws SQLException{
+		public Employee officeaddressinfo(Employee e)throws SQLException, ClassNotFoundException{
 			Employee elocal = new Employee();
 			try {
 				System.out.println("Inside officeaddressinfo function");
-				Connection Con = DriverManager.getConnection("jdbc:mysql://localhost:3307/hr_database","root","root");
+				Connection Con = MySQLConnUtils.getMySQLConnection();
 				String sql = "Select TYPETABLE.VAL AS 'ADDRESS TYPE', max(ADD_MAP.S_DATE) as 'START DATE', ADDRESS.ADDR, ADDRESS.STREET, ADDRESS.CITY, ADDRESS.COUNTRY, ADDRESS.ZIP from ADD_MAP LEFT OUTER JOIN ADDRESS ON ADD_MAP.ADD_ID = ADDRESS.ADD_ID LEFT OUTER JOIN TYPETABLE ON ADDRESS.ADD_TYP = TYPETABLE.TYPE_ID WHERE EMP_ID = ? AND add_typ = 'AD_O' ";
 				PreparedStatement ps = Con.prepareStatement(sql);
 				System.out.println("Passed login NAME is "+e.getEMP_ID());
@@ -216,11 +216,11 @@ int rs;
 				return elocal;
 	}
 		//function for permanent addressinfo
-		public Employee permanentaddressinfo(Employee e)throws SQLException{
+		public Employee permanentaddressinfo(Employee e)throws SQLException, ClassNotFoundException{
 			Employee elocal = new Employee();
 			try {
 				System.out.println("Inside permanentaddressinfo function");
-				Connection Con = DriverManager.getConnection("jdbc:mysql://localhost:3307/hr_database","root","root");
+				Connection Con = MySQLConnUtils.getMySQLConnection();
 				String sql = "Select TYPETABLE.VAL AS 'ADDRESS TYPE', max(ADD_MAP.S_DATE) as 'START DATE', ADDRESS.ADDR, ADDRESS.STREET, ADDRESS.CITY, ADDRESS.COUNTRY, ADDRESS.ZIP from ADD_MAP LEFT OUTER JOIN ADDRESS ON ADD_MAP.ADD_ID = ADDRESS.ADD_ID LEFT OUTER JOIN TYPETABLE ON ADDRESS.ADD_TYP = TYPETABLE.TYPE_ID WHERE EMP_ID = ? AND add_typ = 'AD_P'";
 				PreparedStatement ps = Con.prepareStatement(sql);
 				System.out.println("Passed login NAME is "+e.getEMP_ID());
@@ -247,11 +247,11 @@ int rs;
 				return elocal;
 	}
 		//function for present address info
-		public Employee presentaddressinfo(Employee e)throws SQLException{
+		public Employee presentaddressinfo(Employee e)throws SQLException, ClassNotFoundException{
 			Employee elocal = new Employee();
 			try {
 				System.out.println("Inside presentaddressinfo function");
-				Connection Con = DriverManager.getConnection("jdbc:mysql://localhost:3307/hr_database","root","root");
+				Connection Con = MySQLConnUtils.getMySQLConnection();
 				String sql = "Select TYPETABLE.VAL AS 'ADDRESS TYPE', max(ADD_MAP.S_DATE) as 'START DATE', ADDRESS.ADDR, ADDRESS.STREET, ADDRESS.CITY, ADDRESS.COUNTRY, ADDRESS.ZIP from ADD_MAP LEFT OUTER JOIN ADDRESS ON ADD_MAP.ADD_ID = ADDRESS.ADD_ID LEFT OUTER JOIN TYPETABLE ON ADDRESS.ADD_TYP = TYPETABLE.TYPE_ID WHERE EMP_ID = ? AND add_typ = 'AD_C'";
 				PreparedStatement ps = Con.prepareStatement(sql);
 				System.out.println("Passed login NAME is "+e.getEMP_ID());
@@ -279,11 +279,11 @@ int rs;
 	}
 		//function for fetching office info status,level,proj manager...
 		//not yet completed
-				public Employee officeinfo(Employee e)throws SQLException{
+				public Employee officeinfo(Employee e)throws SQLException, ClassNotFoundException{
 					Employee elocal = new Employee();
 					try {
 						System.out.println("Inside officeinfo function");
-						Connection Con = DriverManager.getConnection("jdbc:mysql://localhost:3307/hr_database","root","root");
+						Connection Con = MySQLConnUtils.getMySQLConnection();
 						String sql = "Select TYPETABLE.VAL AS 'ADDRESS TYPE', max(ADD_MAP.S_DATE) as 'START DATE', ADDRESS.ADDR, ADDRESS.STREET, ADDRESS.CITY, ADDRESS.COUNTRY, ADDRESS.ZIP from ADD_MAP LEFT OUTER JOIN ADDRESS ON ADD_MAP.ADD_ID = ADDRESS.ADD_ID LEFT OUTER JOIN TYPETABLE ON ADDRESS.ADD_TYP = TYPETABLE.TYPE_ID WHERE EMP_ID = ? AND add_typ = 'AD_C'";
 						PreparedStatement ps = Con.prepareStatement(sql);
 						System.out.println("Passed login NAME is "+e.getEMP_ID());
@@ -310,10 +310,10 @@ int rs;
 						return elocal;
 			}
 			//To edit the personal, emergency and office contact number.
-			public int editemail(Employee e)throws SQLException{
+			public int editemail(Employee e)throws SQLException, ClassNotFoundException{
 				try {
-					System.out.println("Inside editcontactnumber function");
-					Connection Con = DriverManager.getConnection("jdbc:mysql://localhost:3307/hr_database","root","root");
+					System.out.println("Inside editemail function");
+					Connection Con = MySQLConnUtils.getMySQLConnection();
 					String sql = "UPDATE EMAIL SET EMAIL = '?' WHERE EMP_ID =? and EMAIL_TYP = 'C_P'";
 					PreparedStatement ps = Con.prepareStatement(sql);
 					System.out.println("Passed login NAME is "+e.getEMP_ID());
@@ -324,6 +324,57 @@ int rs;
 					System.out.println("flag3");
 					
 					rs= ps.executeUpdate();
+					Con.close();
+					}
+					catch(SQLException ex) {
+					  	System.out.println(ex); 
+					  		}
+					return rs;
+			}
+			public int editcontactnumber(Employee e)throws SQLException, ClassNotFoundException{
+				try {
+					System.out.println("Inside editcontactnumber function");
+					Connection Con = MySQLConnUtils.getMySQLConnection();
+					String personal_number_update = "UPDATE CONTACT SET CONTACT = ? WHERE EMP_ID = ? and CON_TYP = 'C_P’";
+					String emergency_number_update = "UPDATE CONTACT SET CONTACT = ? WHERE EMP_ID = ? and CON_TYP = 'C_E’";
+					PreparedStatement ps1 = Con.prepareStatement(personal_number_update);
+					PreparedStatement ps2 = Con.prepareStatement(emergency_number_update);
+					System.out.println("Passed login NAME is "+e.getEMP_ID());
+					System.out.println("flag1");
+					ps1.setString(1,e.getPERSONAL_EMAIL());
+					System.out.println("flag2");
+					ps1.setString(2,String.valueOf(e.getEMP_ID()));
+					System.out.println("flag3");
+					if(true) {//if emergency field is empty and personal field has content
+						//update personal number only
+						System.out.println("Passed personal number is "+e.getCONTACT());
+						ps1.setString(1, String.valueOf(e.getCONTACT()));
+						ps1.setString(2, String.valueOf(e.getEMP_ID()));
+						System.out.println("Passed personal number is "+e.getCONTACT());
+						rs=ps1.executeUpdate();
+					}
+					else if (false) {//if personal contact field is empty and emergency has content
+						System.out.println("Passed personal number is "+e.getECONTACT());
+						ps2.setString(1, String.valueOf(e.getECONTACT()));
+						ps2.setString(2, String.valueOf(e.getEMP_ID()));
+						rs = ps2.executeUpdate();
+					}
+					else if(false) {// both numbers have to be updated
+						System.out.println("Passed personal number is "+e.getCONTACT());
+						ps1.setString(1, String.valueOf(e.getCONTACT()));
+						ps1.setString(2, String.valueOf(e.getEMP_ID()));
+						System.out.println("Passed personal number is "+e.getCONTACT());
+						rs=ps1.executeUpdate();
+						System.out.println("Passed personal number is "+e.getECONTACT());
+						ps2.setString(1, String.valueOf(e.getECONTACT()));
+						ps2.setString(2, String.valueOf(e.getEMP_ID()));
+						rs = ps2.executeUpdate();
+						
+					}
+					else if(false) {
+						//code to show alert both fields are empty
+					}
+					rs= ps1.executeUpdate();
 					Con.close();
 					}
 					catch(SQLException ex) {
