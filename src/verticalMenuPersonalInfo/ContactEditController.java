@@ -41,7 +41,7 @@ public class ContactEditController {
     private JFXTextField PersonalNoEdit;
 
     @FXML
-    private JFXTextField OfficeNoEdit;
+    private JFXTextField OfficeNoEdit;//change tag to emergency contact as office number cant be edited
 
     @FXML
     private JFXButton Cancel_Cancel_btn;
@@ -63,7 +63,30 @@ public class ContactEditController {
     }
 
     @FXML
-    void DisplayCEdit(ActionEvent event) {
-
+    void DisplayCEdit(ActionEvent event) throws ClassNotFoundException, SQLException {
+    	Employee e = new Employee();
+    	TestDao t = new TestDao();
+    	e.setEMP_ID(epass.getEMP_ID());
+    	if(!PersonalNoEdit.getText().isEmpty() && OfficeNoEdit.getText().isEmpty()) {
+    		System.out.println("Personal number field is not empty and hence personal number is set as"+PersonalNoEdit.getText());
+    		e.setCONTACT(Integer.parseInt(PersonalNoEdit.getText()));    		
+    	}
+    	if(!OfficeNoEdit.getText().isEmpty()&& PersonalNoEdit.getText().isEmpty()) {
+    		System.out.println("Emergency number field is not empty and hence personal number is set as"+OfficeNoEdit.getText());
+    		e.setECONTACT(Integer.parseInt(OfficeNoEdit.getText()));//change tag to emergency contact as office number cant be edited
+    	}
+    	if(PersonalNoEdit.getText().isEmpty()&& OfficeNoEdit.getText().isEmpty()) {
+    		//add code to show alert that both fields cant be empty
+    		System.out.println("Both the fields are empty");
+    		
+    	}
+    	int result = t.editcontactnumber(e);
+    	if(result == 1) {
+    		System.out.println("Updated the record successfully");
+    	}
+    	else
+    	{
+    		System.out.println("Update Failed");
+    	}
     }
 }
