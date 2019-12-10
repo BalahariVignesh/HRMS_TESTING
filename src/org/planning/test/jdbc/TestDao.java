@@ -341,35 +341,39 @@ int rs;
 					PreparedStatement ps2 = Con.prepareStatement(emergency_number_update);
 					System.out.println("Passed login NAME is "+e.getEMP_ID());
 					System.out.println("flag1");
-					ps1.setString(1,e.getPERSONAL_EMAIL());
+					
 					System.out.println("flag2");
-					ps1.setString(2,String.valueOf(e.getEMP_ID()));
+					
 					System.out.println("flag3");
-					if(true) {//if emergency field is empty and personal field has content
+					if(e.getECONTACT() && e.getCONTACT()) {// both numbers have to be updated
+						//update both personal and emergency number
+						System.out.println("Passed personal number is "+e.getCONTACT());
+						ps1.setString(1, String.valueOf(e.getCONTACT()));
+						ps1.setString(2, String.valueOf(e.getEMP_ID()));
+						System.out.println("Passed personal number is "+e.getCONTACT());
+						rs=ps1.executeUpdate();
+						System.out.println("Passed personal number is "+e.getECONTACT());
+						ps2.setString(1, String.valueOf(e.getECONTACT()));
+						ps2.setString(2, String.valueOf(e.getEMP_ID()));
+						rs = ps2.executeUpdate();
+						return rs;
+					}
+					else if (e.getECONTACT()) {//if personal contact field is empty and emergency has content
+						//update emergency number only
+						System.out.println("Passed personal number is "+e.getECONTACT());
+						ps2.setString(1, String.valueOf(e.getECONTACT()));
+						ps2.setString(2, String.valueOf(e.getEMP_ID()));
+						rs = ps2.executeUpdate();
+						return rs;
+					}
+					else if(e.getCONTACT()) {
+						//if emergency field is empty and personal field has content
 						//update personal number only
 						System.out.println("Passed personal number is "+e.getCONTACT());
 						ps1.setString(1, String.valueOf(e.getCONTACT()));
 						ps1.setString(2, String.valueOf(e.getEMP_ID()));
-						System.out.println("Passed personal number is "+e.getCONTACT());
 						rs=ps1.executeUpdate();
-					}
-					else if (false) {//if personal contact field is empty and emergency has content
-						System.out.println("Passed personal number is "+e.getECONTACT());
-						ps2.setString(1, String.valueOf(e.getECONTACT()));
-						ps2.setString(2, String.valueOf(e.getEMP_ID()));
-						rs = ps2.executeUpdate();
-					}
-					else if(false) {// both numbers have to be updated
-						System.out.println("Passed personal number is "+e.getCONTACT());
-						ps1.setString(1, String.valueOf(e.getCONTACT()));
-						ps1.setString(2, String.valueOf(e.getEMP_ID()));
-						System.out.println("Passed personal number is "+e.getCONTACT());
-						rs=ps1.executeUpdate();
-						System.out.println("Passed personal number is "+e.getECONTACT());
-						ps2.setString(1, String.valueOf(e.getECONTACT()));
-						ps2.setString(2, String.valueOf(e.getEMP_ID()));
-						rs = ps2.executeUpdate();
-						
+						return rs;
 					}
 					else if(false) {
 						//code to show alert both fields are empty
