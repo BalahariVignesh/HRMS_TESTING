@@ -343,9 +343,8 @@ int rs;
 					System.out.println("flag1");
 					
 					System.out.println("flag2");
-					
 					System.out.println("flag3");
-					if(e.getECONTACT() && e.getCONTACT()) {// both numbers have to be updated
+					if(e.getECONTACT() != 0 && e.getCONTACT() != 0) {// both numbers have to be updated
 						//update both personal and emergency number
 						System.out.println("Passed personal number is "+e.getCONTACT());
 						ps1.setString(1, String.valueOf(e.getCONTACT()));
@@ -358,7 +357,7 @@ int rs;
 						rs = ps2.executeUpdate();
 						return rs;
 					}
-					else if (e.getECONTACT()) {//if personal contact field is empty and emergency has content
+					else if (e.getECONTACT() != 0) {//if personal contact field is empty and emergency has content
 						//update emergency number only
 						System.out.println("Passed personal number is "+e.getECONTACT());
 						ps2.setString(1, String.valueOf(e.getECONTACT()));
@@ -366,7 +365,7 @@ int rs;
 						rs = ps2.executeUpdate();
 						return rs;
 					}
-					else if(e.getCONTACT()) {
+					else if(e.getCONTACT() != 0) {
 						//if emergency field is empty and personal field has content
 						//update personal number only
 						System.out.println("Passed personal number is "+e.getCONTACT());
@@ -375,7 +374,8 @@ int rs;
 						rs=ps1.executeUpdate();
 						return rs;
 					}
-					else if(false) {
+					else if(e.getECONTACT() == 0 && e.getCONTACT() == 0) {
+						System.out.println("Both are empty");
 						//code to show alert both fields are empty
 					}
 					rs= ps1.executeUpdate();
