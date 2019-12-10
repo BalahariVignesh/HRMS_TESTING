@@ -314,7 +314,7 @@ int rs;
 				try {
 					System.out.println("Inside editemail function");
 					Connection Con = MySQLConnUtils.getMySQLConnection();
-					String sql = "UPDATE EMAIL SET EMAIL = '?' WHERE EMP_ID =? and EMAIL_TYP = 'C_P'";
+					String sql = "UPDATE EMAIL SET EMAIL = ? WHERE EMP_ID =? and EMAIL_TYP = 'C_P'";
 					PreparedStatement ps = Con.prepareStatement(sql);
 					System.out.println("Passed login NAME is "+e.getEMP_ID());
 					System.out.println("flag1");
@@ -335,12 +335,12 @@ int rs;
 				try {
 					System.out.println("Inside editcontactnumber function");
 					Connection Con = MySQLConnUtils.getMySQLConnection();
-					String personal_number_update = "UPDATE CONTACT SET CONTACT = ? WHERE EMP_ID = ? and CON_TYP = 'C_P’";
-					String emergency_number_update = "UPDATE CONTACT SET CONTACT = ? WHERE EMP_ID = ? and CON_TYP = 'C_E’";
+					String personal_number_update = "UPDATE CONTACT SET CONTACT = ? WHERE EMP_ID = ? and CON_TYP = 'C_P'";
+					String emergency_number_update = "UPDATE CONTACT SET CONTACT = ? WHERE EMP_ID = ? and CON_TYP = 'C_E'";
 					PreparedStatement ps1 = Con.prepareStatement(personal_number_update);
 					PreparedStatement ps2 = Con.prepareStatement(emergency_number_update);
 					System.out.println("Passed login NAME is "+e.getEMP_ID());
-					System.out.println("flag1");
+					
 					
 					System.out.println("flag2");
 					System.out.println("flag3");
@@ -351,7 +351,7 @@ int rs;
 						ps1.setString(2, String.valueOf(e.getEMP_ID()));
 						System.out.println("Passed personal number is "+e.getCONTACT());
 						rs=ps1.executeUpdate();
-						System.out.println("Passed personal number is "+e.getECONTACT());
+						System.out.println("Passed emergency number is "+e.getECONTACT());
 						ps2.setString(1, String.valueOf(e.getECONTACT()));
 						ps2.setString(2, String.valueOf(e.getEMP_ID()));
 						rs = ps2.executeUpdate();
@@ -359,7 +359,7 @@ int rs;
 					}
 					else if (e.getECONTACT() != 0) {//if personal contact field is empty and emergency has content
 						//update emergency number only
-						System.out.println("Passed personal number is "+e.getECONTACT());
+						System.out.println("Passed emergency number is "+e.getECONTACT());
 						ps2.setString(1, String.valueOf(e.getECONTACT()));
 						ps2.setString(2, String.valueOf(e.getEMP_ID()));
 						rs = ps2.executeUpdate();
@@ -369,8 +369,11 @@ int rs;
 						//if emergency field is empty and personal field has content
 						//update personal number only
 						System.out.println("Passed personal number is "+e.getCONTACT());
+						System.out.println("flag1");
 						ps1.setString(1, String.valueOf(e.getCONTACT()));
+						System.out.println("flag2");
 						ps1.setString(2, String.valueOf(e.getEMP_ID()));
+						System.out.println("flag3");
 						rs=ps1.executeUpdate();
 						return rs;
 					}
@@ -378,7 +381,7 @@ int rs;
 						System.out.println("Both are empty");
 						//code to show alert both fields are empty
 					}
-					rs= ps1.executeUpdate();
+					
 					Con.close();
 					}
 					catch(SQLException ex) {
