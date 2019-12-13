@@ -30,25 +30,28 @@ import org.planning.test.jdbc.*;
 
 public class HrHomePageController {
 	@FXML
-    private JButton PersonalInfo;
+    private JFXButton PersonalInfo;
 
     @FXML
-    private JButton CONTACT;
+    private JFXButton CONTACT;
 
     @FXML
-    private JButton ADDRESS;
+    private JFXButton ADDRESS;
 
     @FXML
-    private JButton OFFICE;
+    private JFXButton OFFICE;
 
     @FXML
-    private JButton PAYROLL;
+    private JFXButton PAYROLL;
 
     @FXML
-    private JButton ASSETS;
+    private JFXButton ASSETS;
 
     @FXML
-    private JButton EDUCATIONAL;
+    private JFXButton EDUCATIONAL;
+
+    @FXML
+    private JFXButton HROPERATIONS;
 
     @FXML
     private Pane TitlePane;
@@ -57,7 +60,7 @@ public class HrHomePageController {
     private Text Title;
 
     @FXML
-    private JButton CLOSE;
+    private JFXButton CLOSE;
 
     @FXML
     private Text Breadcrumb;
@@ -74,8 +77,18 @@ public class HrHomePageController {
     }
 
     @FXML
-    void handleClicks(ActionEvent event) {
+    void handleClicks(ActionEvent event) throws IOException {
+    	
+    	if(event.getSource() == HROPERATIONS )
+    	{
+    		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/HrManagerPages/HrOperations.fxml"));
+    	    Parent root1 = (Parent) fxmlLoader.load();
+    	    Stage stage = new Stage();
+    	    stage.initModality(Modality.APPLICATION_MODAL);
+    	    stage.initStyle(StageStyle.UNDECORATED);
+    	    stage.setScene(new Scene(root1));  
+    	    stage.show();
+    	}
 
     }
-
 }

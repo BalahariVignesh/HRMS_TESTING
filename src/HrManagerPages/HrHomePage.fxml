@@ -25,15 +25,15 @@
                   <Image url="@logo1.png" />
                </image>
             </ImageView>
-            <JFXButton fx:id="PersonalInfo" alignment="CENTER" graphicTextGap="20.0" onAction="#handleClicks" prefHeight="44.0" prefWidth="230.0" style="-fx-background-color: #334CFF;" stylesheets="@../css/fullpackcss.css" text="ADD NEW EMPLOYEE" textAlignment="CENTER">
+            <JFXButton fx:id="PersonalInfo" alignment="CENTER" graphicTextGap="20.0" onAction="#handleClicks" prefHeight="44.0" prefWidth="230.0" style="-fx-background-color: #334CFF;" stylesheets="@../css/fullpackcss.css" text="PERSONAL INFO" textAlignment="CENTER">
                <opaqueInsets>
                   <Insets left="-1.0" />
                </opaqueInsets>
                <graphic>
-                  <FontAwesomeIconView fill="#eee5e5" glyphName="PLUS" size="20.0" />
+                  <FontAwesomeIconView fill="#eee5e5" glyphName="GROUP" size="20.0" />
                </graphic></JFXButton>
             <Group />
-            <JFXButton fx:id="CONTACT" alignment="CENTER" graphicTextGap="20.0" layoutX="10.0" layoutY="198.0" onAction="#handleClicks" prefHeight="44.0" prefWidth="230.0" style="-fx-background-color: #334CFF;" styleClass=".button" stylesheets="@../css/fullpackcss.css" text="UPDATE EMPLOYEE" textAlignment="CENTER">
+            <JFXButton fx:id="CONTACT" alignment="CENTER" graphicTextGap="20.0" layoutX="10.0" layoutY="198.0" onAction="#handleClicks" prefHeight="44.0" prefWidth="230.0" style="-fx-background-color: #334CFF;" styleClass=".button" stylesheets="@../css/fullpackcss.css" text="CONTACT" textAlignment="CENTER">
                <opaqueInsets>
                   <Insets left="-1.0" />
                </opaqueInsets>
@@ -41,7 +41,7 @@
                   <FontAwesomeIconView fill="#eee5e5" glyphName="BOOK" size="20.0" textAlignment="CENTER" />
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="ADDRESS" alignment="CENTER" graphicTextGap="20.0" layoutX="10.0" layoutY="250.0" onAction="#handleClicks" prefHeight="44.0" prefWidth="230.0" style="-fx-background-color: #334CFF;" styleClass=".button" stylesheets="@../css/fullpackcss.css" text="VIEW EMPLOYEE" textAlignment="CENTER">
+            <JFXButton fx:id="ADDRESS" alignment="CENTER" graphicTextGap="20.0" layoutX="10.0" layoutY="250.0" onAction="#handleClicks" prefHeight="44.0" prefWidth="230.0" style="-fx-background-color: #334CFF;" styleClass=".button" stylesheets="@../css/fullpackcss.css" text="ADDRESS" textAlignment="CENTER">
                <opaqueInsets>
                   <Insets left="-1.0" />
                </opaqueInsets>
@@ -79,6 +79,14 @@
                </opaqueInsets>
                <graphic>
                   <FontAwesomeIconView fill="#eee5e5" glyphName="COPY" size="20.0" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="HROPERATIONS" alignment="CENTER" graphicTextGap="20.0" layoutX="10.0" layoutY="490.0" onAction="#handleClicks" prefHeight="44.0" prefWidth="230.0" style="-fx-background-color: #334CFF;" styleClass=".button" stylesheets="@../css/fullpackcss.css" text="HR OPERATIONS" textAlignment="CENTER">
+               <opaqueInsets>
+                  <Insets left="-1.0" />
+               </opaqueInsets>
+               <graphic>
+                  <FontAwesomeIconView fill="#eee5e5" glyphName="USER" size="20.0" />
                </graphic>
             </JFXButton>
         </items>
