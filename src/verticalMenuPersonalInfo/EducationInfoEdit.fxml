@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="557.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="verticalMenuPersonalInfo.EducationalInfoController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="557.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="verticalMenuPersonalInfo.EducationalInfoEditController">
    <children>
       <GridPane prefHeight="490.0" prefWidth="500.0">
         <columnConstraints>
@@ -82,21 +82,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <JFXButton fx:id="Cancel_Cancel_btn" alignment="CENTER" buttonType="RAISED" onAction="#CancelCinfo" prefHeight="39.0" prefWidth="113.0" style="-fx-background-color: #696969;" text="CANCEL" textFill="#f5f2f2" GridPane.columnIndex="2">
-               <font>
-                  <Font size="18.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <graphic>
-                  <FontAwesomeIconView fill="#eee5e5" glyphName="HOME" size="20.0" />
-               </graphic>
-               <GridPane.margin>
-                  <Insets left="32.0" />
-               </GridPane.margin>
-            </JFXButton>
-            <JFXButton fx:id="SAVE_Education_Info" buttonType="RAISED" onAction="#DisplayEducationEdit" prefHeight="39.0" prefWidth="96.0" style="-fx-background-color: #008000;" text="SAVE" textFill="#f5f2f2" GridPane.columnIndex="1">
+            <JFXButton fx:id="SAVE_Education_Info" buttonType="RAISED" onAction="#DisplayEducationEdit" prefHeight="39.0" prefWidth="96.0" style="-fx-background-color: #008000;" text="SAVE" textFill="#f5f2f2" GridPane.columnIndex="2">
                <font>
                   <Font size="18.0" />
                </font>

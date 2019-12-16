@@ -136,21 +136,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <JFXButton fx:id="Cancel_btn" alignment="CENTER" buttonType="RAISED" onAction="#CancelPinfo" prefHeight="39.0" prefWidth="113.0" style="-fx-background-color: #696969;" text="CANCEL" textFill="#f5f2f2" GridPane.columnIndex="2">
-               <font>
-                  <Font size="18.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <graphic>
-                  <FontAwesomeIconView fill="#eee5e5" glyphName="HOME" size="20.0" />
-               </graphic>
-               <GridPane.margin>
-                  <Insets left="32.0" />
-               </GridPane.margin>
-            </JFXButton>
-            <JFXButton fx:id="Edit_btn" buttonType="RAISED" onAction="#EditPInfo" prefHeight="39.0" prefWidth="96.0" style="-fx-background-color: #FFAC2E;" text="EDIT" textFill="#f5f2f2" GridPane.columnIndex="1">
+            <JFXButton fx:id="Edit_btn" buttonType="RAISED" onAction="#EditPInfo" prefHeight="39.0" prefWidth="96.0" style="-fx-background-color: #FFAC2E;" text="EDIT" textFill="#f5f2f2" GridPane.columnIndex="2">
                <font>
                   <Font size="18.0" />
                </font>
