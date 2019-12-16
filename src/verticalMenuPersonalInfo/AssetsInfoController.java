@@ -3,6 +3,7 @@ package verticalMenuPersonalInfo;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import org.planning.test.jdbc.Asset;
 import org.planning.test.jdbc.Employee;
 import org.planning.test.jdbc.TestDao;
 
@@ -16,6 +17,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -46,6 +50,24 @@ public class AssetsInfoController {
   	    SeatNumber.setText(String.valueOf(enew.getSEAT_NUMBER()));
   	    String[] asset_type=enew.getASSET_TYPE();
   	    int[] asset_id=enew.getASSET_NUMBER();
+  	    
+  	    TableView tableView = new TableView();
+
+  	    TableColumn<String, Employee> AssetNumber = new TableColumn<>("Asset Type");
+  	    AssetNumber.setCellValueFactory(new PropertyValueFactory<>("Asset_type"));
+
+
+  	    TableColumn<String, Employee> AssetType = new TableColumn<>("Asset ID");
+  	    AssetType.setCellValueFactory(new PropertyValueFactory<>("Asset_ID"));
+
+
+  	    tableView.getColumns().add(AssetNumber);
+  	    tableView.getColumns().add(AssetType);
+
+  	    tableView.getItems().add(new Asset("John", 12));
+  	    tableView.getItems().add(new Asset("Jane", 23));
+
+  	   
   	    //AssetNumber.setCellFactory(0,0,asset_type[0]);
   	    
   	    //SickLeave.setText(String.valueOf(enew.getS_LEAVE()));
