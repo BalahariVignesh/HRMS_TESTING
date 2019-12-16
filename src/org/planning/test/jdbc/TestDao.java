@@ -2,12 +2,21 @@ package org.planning.test.jdbc;
 
 import java.sql.*;
 import java.sql.PreparedStatement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TestDao implements DAO {
 
 String lnameref;
 boolean login;
+//
+
+//for assets
+String[] asset_name = new String[10];
+int[] asset_id;
+
 int rs;
+int rs1;
 	public void insertTest(Employee e) {
 			try {
 				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/hr_database","root","root");
@@ -246,6 +255,55 @@ int rs;
 			   		}
 				return elocal;
 	}
+		//function for editing permanent address info
+		public int editpermanentaddressinfo(Employee e)throws SQLException, ClassNotFoundException{
+			Employee elocal = new Employee();
+			try {
+				System.out.println("Inside editpermanentaddressinfo function");
+				Connection Con = MySQLConnUtils.getMySQLConnection();
+				Connection Con2 = MySQLConnUtils.getMySQLConnection();
+				String sql = "Select emp_id from address WHERE EMP_ID = ? AND ADD_TYP = 'AD_P'";
+				PreparedStatement ps = Con.prepareStatement(sql);
+				System.out.println("Passed login NAME is "+e.getEMP_ID());
+				ps.setString(1, String.valueOf(e.getEMP_ID()));
+				ResultSet rs= ps.executeQuery();
+				if(rs.next()){
+					String sql2 = "UPDATE ADDRESS SET ADDR = ?, STREET = ?, CITY = ?, COUNTRY = ?, ZIP = ? WHERE EMP_ID = ? AND ADD_TYP = 'AD_P'";
+					System.out.println("Address already exists so updating");
+					PreparedStatement ps1 = Con2.prepareStatement(sql2);
+					ps1.setString(1,e.getPERMANENT_ADDR());
+					ps1.setString(2,e.getPERMANENT_STREET());
+					ps1.setString(3,e.getPERMANENT_CITY());
+					ps1.setString(4,e.getPERMANENT_COUNTRY());
+					ps1.setString(5,String.valueOf(e.getPERMANENT_ZIP()));
+					ps1.setString(6, String.valueOf(e.getEMP_ID()));
+					rs1 = ps1.executeUpdate();
+					return rs1;
+					}
+				else
+					{
+					String sql3 = "INSERT INTO address(EMP_ID, ADD_TYP,ADDR,STREET,CITY,COUNTRY,ZIP) VALUES (?, ?, ?, ?, ?, ?, ?) ";
+					System.out.println("Address does not exist so inserting");
+					PreparedStatement ps1 = Con.prepareStatement(sql3);
+					ps1.setString(1, String.valueOf(e.getEMP_ID()));
+					ps1.setString(2,"AD_P");
+					System.out.println("Printing from inside the testdao"+elocal.getPERMANENT_ADDR());
+					ps1.setString(3,e.getPERMANENT_ADDR());
+					ps1.setString(4,e.getPERMANENT_STREET());
+					ps1.setString(5,e.getPERMANENT_CITY());
+					ps1.setString(6,e.getPERMANENT_COUNTRY());
+					ps1.setString(7,String.valueOf(e.getPERMANENT_ZIP()));
+					rs1 = ps1.executeUpdate();
+					return rs1;
+					}
+				//rs.close();
+				//Con.close();
+				}
+			catch(SQLException ex) {
+			  	System.out.println(ex); 
+			   		}
+				return rs;
+		}
 		//function for present address info
 		public Employee presentaddressinfo(Employee e)throws SQLException, ClassNotFoundException{
 			Employee elocal = new Employee();
@@ -277,40 +335,57 @@ int rs;
 			   		}
 				return elocal;
 	}
-		//function for fetching office info status,level,proj manager...
-		//not yet completed
-				public Employee officeinfo(Employee e)throws SQLException, ClassNotFoundException{
-					Employee elocal = new Employee();
-					try {
-						System.out.println("Inside officeinfo function");
-						Connection Con = MySQLConnUtils.getMySQLConnection();
-						String sql = "Select TYPETABLE.VAL AS 'ADDRESS TYPE', max(ADD_MAP.S_DATE) as 'START DATE', ADDRESS.ADDR, ADDRESS.STREET, ADDRESS.CITY, ADDRESS.COUNTRY, ADDRESS.ZIP from ADD_MAP LEFT OUTER JOIN ADDRESS ON ADD_MAP.ADD_ID = ADDRESS.ADD_ID LEFT OUTER JOIN TYPETABLE ON ADDRESS.ADD_TYP = TYPETABLE.TYPE_ID WHERE EMP_ID = ? AND add_typ = 'AD_C'";
-						PreparedStatement ps = Con.prepareStatement(sql);
-						System.out.println("Passed login NAME is "+e.getEMP_ID());
-						ps.setString(1, String.valueOf(e.getEMP_ID()));
-						ResultSet rs= ps.executeQuery();
-						while(rs.next()){
-							elocal.setPRESENT_ADDR(rs.getString("ADDR"));
-							System.out.println("ADDR is "+elocal.getPRESENT_ADDR());
-							elocal.setPRESENT_STREET(rs.getString("STREET"));
-							System.out.println("STREET is "+elocal.getPRESENT_STREET());
-							elocal.setPRESENT_CITY(rs.getString("CITY"));
-							System.out.println("CITY is "+elocal.getPRESENT_CITY());
-							elocal.setPRESENT_COUNTRY(rs.getString("COUNTRY"));
-							System.out.println("Country is "+elocal.getPRESENT_COUNTRY());
-							elocal.setPRESENT_ZIP(Integer.parseInt(rs.getString("ZIP")));
-							System.out.println("ZIP is "+elocal.getPRESENT_ZIP());
-							}
-						rs.close();
-						Con.close();
-						}
-					catch(SQLException ex) {
-						  	System.out.println(ex); 
-					   		}
-						return elocal;
-			}
-			//To edit the personal, emergency and office contact number.
-			public int editemail(Employee e)throws SQLException, ClassNotFoundException{
+		//function for editing PRESENT address info
+		public int editpresentaddressinfo(Employee e)throws SQLException, ClassNotFoundException{
+			Employee elocal = new Employee();
+			try {
+				System.out.println("Inside edit present address info function");
+				Connection Con = MySQLConnUtils.getMySQLConnection();
+				Connection Con2 = MySQLConnUtils.getMySQLConnection();
+				String sql = "Select emp_id from address WHERE EMP_ID = ? AND ADD_TYP = 'AD_C'";
+				PreparedStatement ps = Con.prepareStatement(sql);
+				System.out.println("Passed login NAME is "+e.getEMP_ID());
+				ps.setString(1, String.valueOf(e.getEMP_ID()));
+				ResultSet rs= ps.executeQuery();
+				if(rs.next()){
+					String sql2 = "UPDATE ADDRESS SET ADDR = ?, STREET = ?, CITY = ?, COUNTRY = ?, ZIP = ? WHERE EMP_ID = ? AND ADD_TYP = 'AD_C'";
+					System.out.println("Address already exists so updating");
+					PreparedStatement ps1 = Con2.prepareStatement(sql2);
+					ps1.setString(1,e.getPRESENT_ADDR());	
+					ps1.setString(2,e.getPRESENT_STREET());
+					ps1.setString(3,e.getPRESENT_CITY());
+					ps1.setString(4,e.getPRESENT_COUNTRY());
+					ps1.setString(5,String.valueOf(e.getPRESENT_ZIP()));
+					ps1.setString(6, String.valueOf(e.getEMP_ID()));
+					rs1 = ps1.executeUpdate();
+					return rs1;
+					}
+				else
+					{
+					String sql3 = "INSERT INTO address(EMP_ID, ADD_TYP,ADDR,STREET,CITY,COUNTRY,ZIP) VALUES (?, ?, ?, ?, ?, ?, ?) ";
+					System.out.println("Address does not exist so inserting");
+					PreparedStatement ps1 = Con.prepareStatement(sql3);
+					ps1.setString(1, String.valueOf(e.getEMP_ID()));
+					ps1.setString(2,"AD_C");
+					System.out.println("Printing from inside the testdao"+elocal.getPERMANENT_ADDR());
+					ps1.setString(3,e.getPRESENT_ADDR());
+					ps1.setString(4,e.getPRESENT_STREET());
+					ps1.setString(5,e.getPRESENT_CITY());
+					ps1.setString(6,e.getPRESENT_COUNTRY());
+					ps1.setString(7,String.valueOf(e.getPRESENT_ZIP()));
+					rs1 = ps1.executeUpdate();
+					return rs1;
+					}
+				//rs.close();
+				//Con.close();
+				}
+			catch(SQLException ex) {
+			  	System.out.println(ex); 
+			   		}
+				return rs;
+		}
+				//To edit the personal, emergency and office contact number.
+		public int editemail(Employee e)throws SQLException, ClassNotFoundException{
 				try {
 					System.out.println("Inside editemail function");
 					Connection Con = MySQLConnUtils.getMySQLConnection();
@@ -414,6 +489,71 @@ int rs;
 				   		}
 					return elocal;
 		}
+			// function to fetch the asset details and seat number balance called by AssetInfoController
+			public Employee fetchAssetInfo(Employee e)throws SQLException, ClassNotFoundException{
+				Employee elocal = new Employee();
+				try {
+					System.out.println("Inside fetchAssetInfo function");
+					Connection Con = MySQLConnUtils.getMySQLConnection();
+					String sql = "SELECT SEAT_NO FROM SEAT WHERE EMP_ID = ?";
+					String sql2 = "SELECT TYPETABLE.VAL AS 'ASSET TYPE',ASSET.ASSET_ID FROM ASSET LEFT OUTER JOIN TYPETABLE ON ASSET.ASSET_TYP = TYPETABLE.TYPE_ID WHERE EMP_ID = ?";
+					PreparedStatement ps = Con.prepareStatement(sql);
+					System.out.println("Passed login NAME is "+e.getEMP_ID());
+					ps.setString(1, String.valueOf(e.getEMP_ID()));
+					ResultSet rs= ps.executeQuery();
+					while(rs.next()){
+						elocal.setSEAT_NUMBER(Integer.parseInt(rs.getString("SEAT_NO")));
+
+						System.out.println("Seatnumber is "+elocal.getSEAT_NUMBER());
+								
+						}
+					rs.close();
+					PreparedStatement ps2 = Con.prepareStatement(sql2);
+					ps2.setString(1, String.valueOf(e.getEMP_ID()));
+					rs= ps2.executeQuery();
+					while(rs.next()){
+						for(int i = 0; i<=5; i++) {
+							asset_name[i]=rs.getString("ASSET TYPE");
+							asset_id[i] = Integer.parseInt(rs.getString("ASSET_ID"));
+							System.out.println("Asset type is "+rs.getString("ASSET TYPE"));
+							System.out.println("Asset type is "+rs.getString("ASSET_ID"));
+						}
+						elocal.setASSET_TYPE(asset_name);
+						elocal.setASSET_NUMBER(asset_id);
+					}
+					rs.close();
+					Con.close();
+					}
+					catch(SQLException ex) {
+					  	System.out.println(ex); 
+				   		}
+					return elocal;
+			}
+			// function to fetch the office details and seat number balance called by officeinfocontroller
+			public Employee fetchOfficeInfo(Employee e)throws SQLException, ClassNotFoundException{
+				Employee elocal = new Employee();
+				try {
+					System.out.println("Inside fetchOfficeInfo function");
+					Connection Con = MySQLConnUtils.getMySQLConnection();
+					String sql = "Select EMPL.C_LEVEL, BRANCHES.VAL AS 'BRANCH', TYPETABLE.VAL AS 'STATUS',  concat( (SELECT FNAME FROM EMPLOYEE WHERE EMP_ID = EMPL.C_MAN), (SELECT MNAME FROM EMPLOYEE WHERE EMP_ID = EMPL.C_MAN), (SELECT LNAME FROM EMPLOYEE WHERE EMP_ID = EMPL.C_MAN) ) as 'MANAGER', ( SELECT PROJ_DES FROM PROJECT WHERE PROJ_ID = EMPL.C_PROJ) AS 'PROJECT' from EMPLOYEE EMPL LEFT OUTER JOIN BRANCHES ON EMPL.C_BRANCH = BRANCHES.TYPE_ID LEFT OUTER JOIN TYPETABLE ON EMPL.C_STATUS = TYPETABLE.TYPE_ID WHERE EMP_ID = ?";
+					PreparedStatement ps = Con.prepareStatement(sql);
+					System.out.println("Passed login NAME is "+e.getEMP_ID());
+					ps.setString(1, String.valueOf(e.getEMP_ID()));
+					ResultSet rs= ps.executeQuery();
+					while(rs.next()){
+						elocal.setC_LEVEL(Integer.parseInt(rs.getString("C_LEVEL")));				
+						elocal.setC_Branch(rs.getString("BRANCH"));						
+						elocal.setC_STATUS(rs.getString("STATUS"));		
+						elocal.setMANAGER(rs.getString("MANAGER"));
+						elocal.setPROJECT_NAME(rs.getString("PROJECT"));
+						}
+					rs.close();
+					}
+					catch(SQLException ex) {
+					  	System.out.println(ex); 
+				   		}
+					return elocal;
+			}
 			
 }
 

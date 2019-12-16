@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="557.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="verticalMenuPersonalInfo.PresentAddressController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="557.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="verticalMenuPersonalInfo.PermanentAddressController">
    <children>
       <GridPane prefHeight="490.0" prefWidth="500.0">
         <columnConstraints>
@@ -141,7 +141,7 @@
                   <Insets left="32.0" />
                </GridPane.margin>
             </JFXButton>
-            <JFXButton fx:id="SavePermanentAddress" buttonType="RAISED" onAction="#DisplayPermanentAddress" prefHeight="39.0" prefWidth="96.0" style="-fx-background-color: #008000;" text="SAVE" textFill="#f5f2f2" GridPane.columnIndex="1">
+            <JFXButton fx:id="SavePermanentAddress" buttonType="RAISED" onAction="#EditPermanentAddress" prefHeight="39.0" prefWidth="96.0" style="-fx-background-color: #008000;" text="SAVE" textFill="#f5f2f2" GridPane.columnIndex="1">
                <font>
                   <Font size="18.0" />
                </font>
