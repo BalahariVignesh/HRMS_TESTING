@@ -1,6 +1,9 @@
 package org.planning.test.jdbc;
 
-
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 public class Employee {
 	private int EMP_ID;
@@ -80,7 +83,25 @@ public class Employee {
 	private int SEAT_NUMBER;
 	private int[] ASSET_NUMBER;
 	private String[] ASSET_TYPE;
+	private int TOTAL_ASSETS;
 	
+	//for list
+	private IntegerProperty idProperty;
+	private StringProperty fnameProperty;
+	private StringProperty lnameProperty;
+	private StringProperty branchProperty;
+	private StringProperty statusProperty;
+	private StringProperty projectProperty;
+	
+	public void EmployeeTest() {
+		this.idProperty = new SimpleIntegerProperty();
+		this.fnameProperty = new SimpleStringProperty();
+		this.lnameProperty = new SimpleStringProperty();
+		this.branchProperty= new SimpleStringProperty();
+		this.statusProperty = new SimpleStringProperty();
+		this.projectProperty = new SimpleStringProperty();
+				
+	}
 	
 	//Address Mapping Table Content Datatypes
 	//private String ADD_ID;
@@ -92,6 +113,14 @@ public class Employee {
 //	private String COUNTRY;
 //	private int ZIP;
 	
+	public int getTOTAL_ASSETS() {
+		return TOTAL_ASSETS;
+	}
+
+	public void setTOTAL_ASSETS(int tOTAL_ASSETS) {
+		TOTAL_ASSETS = tOTAL_ASSETS;
+	}
+
 	public int getSEAT_NUMBER() {
 		return SEAT_NUMBER;
 	}
@@ -462,5 +491,72 @@ public class Employee {
 
 	public void setOCONTACT(int oCONTACT) {
 		OCONTACT = oCONTACT;
+	}
+//////////////////////////////////////////////////////////////
+	public int getIdProperty() {
+		return idProperty.get();
+	}
+
+	public void setIdProperty(int id) {
+		this.idProperty.set(id);
+	}
+	
+	public IntegerProperty getEMPIdProperty() {
+		return idProperty;
+	}
+/////////////////////////////////////
+	public StringProperty getFnameProperty() {
+		return fnameProperty;
+	}
+
+	public void setFnameProperty(String fname) {
+		this.fnameProperty.set(fname);
+	}
+	public StringProperty getfnameEmpProperty() {
+		return fnameProperty;
+	}
+///////////////////////////////////////
+	public StringProperty getLnameProperty() {
+		return lnameProperty;
+	}
+
+	public void setLnameProperty(String lname) {
+		this.lnameProperty.set(lname);
+	}
+	public StringProperty getfnameProperty() {
+		return lnameProperty;
+	}
+/////////////////////////////////////////////	
+	public StringProperty getBranchProperty() {
+		return branchProperty;
+	}
+
+	public void setBranchProperty(String branch) {
+		this.branchProperty.set(branch);
+	}
+	public StringProperty getbranchEmpProperty() {
+		return branchProperty;
+	}
+////////////////////////////////////////////////
+	public StringProperty getStatusProperty() {
+		return statusProperty;
+	}
+
+	public void setStatusProperty(String status) {
+		this.statusProperty.set(status);
+	}
+	public StringProperty getstatusEmpProperty() {
+		return statusProperty;
+	}
+////////////////////////////////////////////////////
+	public StringProperty getProjectProperty() {
+		return projectProperty;
+	}
+
+	public void setProjectProperty(String project) {
+		this.projectProperty.set(project);
+	}
+	public StringProperty getprojectEmpProperty() {
+		return projectProperty;
 	}
 }

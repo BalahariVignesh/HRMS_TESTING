@@ -5,6 +5,9 @@ import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 public class TestDao implements DAO {
 
 String lnameref;
@@ -511,22 +514,24 @@ int rs1;
 					PreparedStatement ps2 = Con.prepareStatement(sql2);
 					ps2.setString(1, String.valueOf(e.getEMP_ID()));
 					rs= ps2.executeQuery();
+					int i=0;
 					while(rs.next()){
-						for(int i = 0; i<=5; i++) {
 							asset_name[i]=rs.getString("ASSET TYPE");
 							asset_id[i] = Integer.parseInt(rs.getString("ASSET_ID"));
 							System.out.println("Asset type is "+rs.getString("ASSET TYPE"));
 							System.out.println("Asset type is "+rs.getString("ASSET_ID"));
+							i++;
 						}
+						elocal.setTOTAL_ASSETS(i);
 						elocal.setASSET_TYPE(asset_name);
 						elocal.setASSET_NUMBER(asset_id);
-					}
-					rs.close();
-					Con.close();
+					
+					//rs.close();
+					//Con.close();
 					}
 					catch(SQLException ex) {
 					  	System.out.println(ex); 
-				   		}
+				   	}
 					return elocal;
 			}
 			// function to fetch the office details and seat number balance called by officeinfocontroller
@@ -554,38 +559,68 @@ int rs1;
 				   		}
 					return elocal;
 			}
-			//testing list functionality to display as table
-			public List<Employee> getContactsForName(String name) {
-			      String sql = "Select * from Employee where name like '%" +
-			         name + "%'";
-			      List<Employee> list = new ArrayList<>();
-			      try {
-			    	  Connection Con = MySQLConnUtils.getMySQLConnection();
-			    	  Statement stmt = Con.createStatement();
-			    	  ResultSet rs = stmt.executeQuery(sql);
-			    	  while (rs.next()) {
-			            Employee e = createEmployee(rs);
-			            list.add(e);
-			    	  }
-			         rs.close();
-			         Con.close();
-			      } catch (ClassNotFoundException | SQLException ex) {
-			      }
-			      return list;
-			   }
 			
-			//testing list functionality
-			public Employee createEmployee(ResultSet rs) {
-		      Employee e = new Employee();
-		      try {
-		    	  e.setEMP_ID(rs.getInt("EMP_ID"));
-		    	  e.setFNAME(rs.getString("FNAME"));
-		    	  e.setMNAME(rs.getString("MNAME"));
-		    	  e.setLNAME(rs.getString("LNAME"));
-		       
-		      	} catch (SQLException ex) {
-		      }
-		      return e;
-		   }
+//			//testing list functionality to display as table
+//			public ObservableList<Employee> getContactsForName(String name) {
+//			      String sql = "Select * from Employee where name like '%" +
+//			         name + "%'";
+//			      ObservableList<Employee> list = new ObservableList<>();
+//			      try {
+//			    	  Connection Con = MySQLConnUtils.getMySQLConnection();
+//			    	  Statement stmt = Con.createStatement();
+//			    	  ResultSet rs = stmt.executeQuery(sql);
+//			    	  while (rs.next()) {
+//			            ObservableList<Employee> emplist = createEmployee(rs);
+//			            return emplist;
+//			    	  }
+//			         rs.close();
+//			         Con.close();
+//			      } catch (ClassNotFoundException | SQLException ex) {
+//			      }
+//			      //return list;
+//			   }
+//			
+//			//testing list functionality
+//			public ObservableList<Employee> createEmployee(ResultSet rs) {
+//				ObservableList<Employee> emplist = FXCollections.observableArrayList();
+//		      
+//		      try {
+//		    	   
+//		    	  while(rs.next()) {
+//		    		  Employee e = new Employee();
+//			    	  e.setEMP_ID(rs.getInt("EMP_ID"));
+//			    	  e.setFNAME(rs.getString("FNAME"));
+//			    	  e.setMNAME(rs.getString("MNAME"));
+//			    	  e.setLNAME(rs.getString("LNAME"));
+//			    	  e.setC_Branch(rs.getString("C_BRANCH"));
+//			    	  e.setC_STATUS(rs.getString("C_STATUS"));
+//			    	  e.setC_PROJ(Integer.parseInt(rs.getString("C_PROJ")));
+//			    	  emplist.add(e);
+//		    	  
+//		    	 
+//		    	  }
+//		       
+//		      	} catch (SQLException ex) {
+//		      }
+//		      return emplist;
+//		      
+//		   }
+//			public ObservableList<Employee> getAllEmployees() {
+//			      String sql = "Select * from Employee";
+//			      ObservableList<Employee> emplist = new ObservableList<>();
+//			      try {
+//			    	  Connection Con = MySQLConnUtils.getMySQLConnection();
+//			    	  Statement stmt = Con.createStatement();
+//			    	  ResultSet rs = stmt.executeQuery(sql);
+//			    	  while (rs.next()) {
+//			        	 Employee e = createEmployee(rs);
+//			        	 emplist.add(e);
+//			         }
+//			         rs.close();
+//			      //   con.close();
+//			      } catch (ClassNotFoundException | SQLException ex) {
+//			      }
+//			      return list;
+//			   }
 }
 
