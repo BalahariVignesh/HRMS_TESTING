@@ -20,7 +20,7 @@ public class ContactUnSuccessAlertController {
 	private final AlertMessage alert = new AlertMessage();
 	    @FXML
 	    public void initialize(){
-	    	((Labeled) AlertContentText).setText("HOIIII");
+	    	//((Labeled) AlertContentText).setText("HOIIII");
 	    }
 	    
 	    
