@@ -1,31 +1,38 @@
 package verticalMenuPersonalInfo;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXRadioButton;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
 public class LeaveApplyController {
-	 @FXML
-	    private JFXRadioButton SickLeave;
+	@FXML
+    private JFXRadioButton SickLeave;
 
-	    @FXML
-	    private JFXRadioButton CasualLeave;
+    @FXML
+    private JFXRadioButton CasualLeave;
 
-	    @FXML
-	    private JFXButton SavePermanentAddress;
+    @FXML
+    private JFXDatePicker LeaveStartDate;
 
-	    @FXML
-	    private JFXButton CLOSE;
+    @FXML
+    private JFXDatePicker LeaveEndDate;
 
-	    @FXML
-	    void CloseWindow(ActionEvent event) {
+    @FXML
+    private JFXButton Request_Leave_Btn;
 
-	    }
+    @FXML
+    private JFXButton CLOSE;
 
-	    @FXML
-	    void DisplayPermanentAddress(ActionEvent event) {
+    @FXML
+    void ApplyLeaveFunction(ActionEvent event) {
 
-	    }
+    }
+
+    @FXML
+    void CloseWindow(ActionEvent event) {
+
+    }
 }

@@ -72,12 +72,12 @@
                               <Insets left="120.0" top="-18.0" />
                            </VBox.margin>
                         </JFXRadioButton>
-                        <JFXDatePicker prefHeight="53.0" prefWidth="238.0">
+                        <JFXDatePicker fx:id="LeaveStartDate" prefHeight="53.0" prefWidth="238.0">
                            <VBox.margin>
                               <Insets top="50.0" />
                            </VBox.margin>
                         </JFXDatePicker>
-                        <JFXDatePicker layoutX="10.0" layoutY="106.0" prefHeight="53.0" prefWidth="238.0">
+                        <JFXDatePicker fx:id="LeaveEndDate" layoutX="10.0" layoutY="106.0" prefHeight="53.0" prefWidth="238.0">
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin>
@@ -101,7 +101,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <JFXButton fx:id="SavePermanentAddress" buttonType="RAISED" onAction="#DisplayPermanentAddress" prefHeight="39.0" prefWidth="186.0" style="-fx-background-color: #008000;" text="REQUEST" textFill="#f5f2f2" GridPane.columnIndex="1">
+            <JFXButton fx:id="Request_Leave_Btn" buttonType="RAISED" onAction="#ApplyLeaveFunction" prefHeight="39.0" prefWidth="186.0" style="-fx-background-color: #008000;" text="REQUEST" textFill="#f5f2f2" GridPane.columnIndex="1">
                <font>
                   <Font size="18.0" />
                </font>
