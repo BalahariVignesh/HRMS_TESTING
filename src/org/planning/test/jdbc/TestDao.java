@@ -554,6 +554,38 @@ int rs1;
 				   		}
 					return elocal;
 			}
+			//testing list functionality to display as table
+			public List<Employee> getContactsForName(String name) {
+			      String sql = "Select * from Employee where name like '%" +
+			         name + "%'";
+			      List<Employee> list = new ArrayList<>();
+			      try {
+			    	  Connection Con = MySQLConnUtils.getMySQLConnection();
+			    	  Statement stmt = Con.createStatement();
+			    	  ResultSet rs = stmt.executeQuery(sql);
+			    	  while (rs.next()) {
+			            Employee e = createEmployee(rs);
+			            list.add(e);
+			    	  }
+			         rs.close();
+			         Con.close();
+			      } catch (ClassNotFoundException | SQLException ex) {
+			      }
+			      return list;
+			   }
 			
+			//testing list functionality
+			public Employee createEmployee(ResultSet rs) {
+		      Employee e = new Employee();
+		      try {
+		    	  e.setEMP_ID(rs.getInt("EMP_ID"));
+		    	  e.setFNAME(rs.getString("FNAME"));
+		    	  e.setMNAME(rs.getString("MNAME"));
+		    	  e.setLNAME(rs.getString("LNAME"));
+		       
+		      	} catch (SQLException ex) {
+		      }
+		      return e;
+		   }
 }
 
