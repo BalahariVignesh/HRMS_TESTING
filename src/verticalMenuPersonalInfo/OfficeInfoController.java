@@ -1,6 +1,8 @@
 package verticalMenuPersonalInfo;
 
 
+import java.sql.SQLException;
+
 import org.planning.test.jdbc.Employee;
 import org.planning.test.jdbc.TestDao;
 
@@ -10,6 +12,7 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 import loginController.LoginController;
 
 public class OfficeInfoController {
@@ -17,51 +20,33 @@ public class OfficeInfoController {
 	Employee epass = contrl.getEmployee();
 	
 	 @FXML
-	    private JFXTextField PersonalNo_Display;
+	    private JFXTextField EmployeeLevel;
 
 	    @FXML
-	    private JFXTextField OfficeNo_Display;
+	    private JFXTextField EmployeeBranch;
 
 	    @FXML
-	    private JFXTextField EmergencyNo_field;
+	    private JFXTextField EmployeeStatus;
 
 	    @FXML
-	    private JFXButton Edit_Contact_btn;
+	    private JFXTextField EmployeeManager;
 
 	    @FXML
-	    private JFXTextField PersonalEmail;
-
-	    @FXML
-	    private JFXTextField OfficialEmail;
-
-	    @FXML
-	    private JFXButton Edit_Email_btn;
-
-	    @FXML
-	    void EditContactDetails(ActionEvent event) {
-
-	    }
-
-	    @FXML
-	    void EditEmailId(ActionEvent event) {
-
-	    }
+	    private JFXTextField EmployeeProjectName;
 	    
 	    @FXML
-	    public void initialize() {
+	    public void initialize() throws ClassNotFoundException, SQLException {
 	    	Employee e = new Employee();
-	    	System.out.println("Inside Personal Info Controller"+epass.getEMP_ID());
+	    	System.out.println("Inside Office Info Controller"+epass.getEMP_ID());
       	    e.setEMP_ID(epass.getEMP_ID());
       	    TestDao t = new TestDao();
-      	    Employee enew = t.fetchEmployeePersonalDetails(e);
-      	    System.out.println(e.getFNAME());
-//      	    FNAME.setText(enew.getFNAME());
-//      	    System.out.println(enew.getFNAME());
-//      	    MNAME.setText(enew.getMNAME());
-//      	    LNAME.setText(enew.getLNAME());
-//      	    DOB.setText(String.valueOf(enew.getDOB()));
-//      	    SSN.setText(String.valueOf(enew.get_sno()));
-//      	    MaritalStatus.setText(enew.getMAR());
+      	    Employee enew = t.fetchOfficeInfo(e);
+      	    EmployeeLevel.setText(String.valueOf(enew.getC_LEVEL()));
+      	    System.out.println(enew.getC_LEVEL());
+      	    EmployeeBranch.setText(enew.getC_Branch());
+      	    EmployeeStatus.setText(enew.getC_STATUS());
+      	    EmployeeManager.setText(enew.getMANAGER());
+      	    EmployeeProjectName.setText(enew.getPROJECT_NAME());
 	    }
 
 }
