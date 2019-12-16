@@ -1,5 +1,6 @@
 package verticalMenuPersonalInfo;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 import org.planning.test.jdbc.Employee;
@@ -10,7 +11,13 @@ import com.jfoenix.controls.JFXTextField;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import loginController.LoginController;
 import org.planning.test.jdbc.Employee;
 import org.planning.test.jdbc.TestDao;
@@ -74,17 +81,32 @@ public class AddressInfoController {
 
     @FXML
     void CancelAinfo(ActionEvent event) {
-
+        // get a handle to the stage
+        Stage stage = (Stage) Cancel_Address_btn.getScene().getWindow();
+        // do what you have to do
+        stage.close();
     }
 
     @FXML
-    void EditPermanentAddressInfo(ActionEvent event) {
-
+    void EditPermanentAddressInfo(ActionEvent event) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/verticalMenuPersonalInfo/PermanentAddressEdit.fxml"));
+	    Parent root1 = (Parent) fxmlLoader.load();
+	    Stage stage = new Stage();
+	    stage.initModality(Modality.APPLICATION_MODAL);
+	    stage.initStyle(StageStyle.UNDECORATED);
+	    stage.setScene(new Scene(root1));  
+	    stage.show();
     }
 
     @FXML
-    void EditPresentAddressInfo(ActionEvent event) {
-
+    void EditPresentAddressInfo(ActionEvent event) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/verticalMenuPersonalInfo/PresentAddressEdit.fxml"));
+	    Parent root1 = (Parent) fxmlLoader.load();
+	    Stage stage = new Stage();
+	    stage.initModality(Modality.APPLICATION_MODAL);
+	    stage.initStyle(StageStyle.UNDECORATED);
+	    stage.setScene(new Scene(root1));  
+	    stage.show();
     }
     @FXML
     public void initialize() throws SQLException, ClassNotFoundException {
