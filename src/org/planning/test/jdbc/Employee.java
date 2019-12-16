@@ -53,6 +53,12 @@ public class Employee {
 	private String OFFICIAL_COUNTRY;
 	private int OFFICIAL_ZIP;// .matches('\d{6}')
 	
+	//for leave
+	private float S_LEAVE;
+	private float C_LEAVE;
+	private java.sql.Date START_DATE;
+	private java.sql.Date END_DATE;
+	
 	
 	//Address Mapping Table Content Datatypes
 	//private String ADD_ID;
@@ -64,6 +70,38 @@ public class Employee {
 //	private String COUNTRY;
 //	private int ZIP;
 	
+	public float getS_LEAVE() {
+		return S_LEAVE;
+	}
+
+	public void setS_LEAVE(float s_LEAVE) {
+		S_LEAVE = s_LEAVE;
+	}
+
+	public float getC_LEAVE() {
+		return C_LEAVE;
+	}
+
+	public void setC_LEAVE(float c_LEAVE) {
+		C_LEAVE = c_LEAVE;
+	}
+
+	public java.sql.Date getSTART_DATE() {
+		return START_DATE;
+	}
+
+	public void setSTART_DATE(java.sql.Date sTART_DATE) {
+		START_DATE = sTART_DATE;
+	}
+
+	public java.sql.Date getEND_DATE() {
+		return END_DATE;
+	}
+
+	public void setEND_DATE(java.sql.Date eND_DATE) {
+		END_DATE = eND_DATE;
+	}
+
 	//phone contact info
 	private int CONTACT;//Personal number
 	private int ECONTACT;//Emergency Contact number

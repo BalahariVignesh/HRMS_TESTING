@@ -190,7 +190,7 @@ int rs;
 			try {
 				System.out.println("Inside officeaddressinfo function");
 				Connection Con = MySQLConnUtils.getMySQLConnection();
-				String sql = "Select TYPETABLE.VAL AS 'ADDRESS TYPE', max(ADD_MAP.S_DATE) as 'START DATE', ADDRESS.ADDR, ADDRESS.STREET, ADDRESS.CITY, ADDRESS.COUNTRY, ADDRESS.ZIP from ADD_MAP LEFT OUTER JOIN ADDRESS ON ADD_MAP.ADD_ID = ADDRESS.ADD_ID LEFT OUTER JOIN TYPETABLE ON ADDRESS.ADD_TYP = TYPETABLE.TYPE_ID WHERE EMP_ID = ? AND add_typ = 'AD_O' ";
+				String sql = "SELECT EMP_ID, (SELECT VAL FROM TYPETABLE WHERE TYPE_ID = ADD_TYP),ADDR,STREET,CITY,COUNTRY,ZIP FROM ADDRESS WHERE EMP_ID = ? AND ADD_TYP = 'AD_O'";
 				PreparedStatement ps = Con.prepareStatement(sql);
 				System.out.println("Passed login NAME is "+e.getEMP_ID());
 				ps.setString(1, String.valueOf(e.getEMP_ID()));
@@ -221,7 +221,7 @@ int rs;
 			try {
 				System.out.println("Inside permanentaddressinfo function");
 				Connection Con = MySQLConnUtils.getMySQLConnection();
-				String sql = "Select TYPETABLE.VAL AS 'ADDRESS TYPE', max(ADD_MAP.S_DATE) as 'START DATE', ADDRESS.ADDR, ADDRESS.STREET, ADDRESS.CITY, ADDRESS.COUNTRY, ADDRESS.ZIP from ADD_MAP LEFT OUTER JOIN ADDRESS ON ADD_MAP.ADD_ID = ADDRESS.ADD_ID LEFT OUTER JOIN TYPETABLE ON ADDRESS.ADD_TYP = TYPETABLE.TYPE_ID WHERE EMP_ID = ? AND add_typ = 'AD_P'";
+				String sql = "SELECT EMP_ID, (SELECT VAL FROM TYPETABLE WHERE TYPE_ID = ADD_TYP),ADDR,STREET,CITY,COUNTRY,ZIP FROM ADDRESS WHERE EMP_ID = ? AND add_typ = 'AD_P'";
 				PreparedStatement ps = Con.prepareStatement(sql);
 				System.out.println("Passed login NAME is "+e.getEMP_ID());
 				ps.setString(1, String.valueOf(e.getEMP_ID()));
@@ -252,7 +252,7 @@ int rs;
 			try {
 				System.out.println("Inside presentaddressinfo function");
 				Connection Con = MySQLConnUtils.getMySQLConnection();
-				String sql = "Select TYPETABLE.VAL AS 'ADDRESS TYPE', max(ADD_MAP.S_DATE) as 'START DATE', ADDRESS.ADDR, ADDRESS.STREET, ADDRESS.CITY, ADDRESS.COUNTRY, ADDRESS.ZIP from ADD_MAP LEFT OUTER JOIN ADDRESS ON ADD_MAP.ADD_ID = ADDRESS.ADD_ID LEFT OUTER JOIN TYPETABLE ON ADDRESS.ADD_TYP = TYPETABLE.TYPE_ID WHERE EMP_ID = ? AND add_typ = 'AD_C'";
+				String sql = "SELECT EMP_ID, (SELECT VAL FROM TYPETABLE WHERE TYPE_ID = ADD_TYP),ADDR,STREET,CITY,COUNTRY,ZIP FROM ADDRESS WHERE EMP_ID = ? AND ADD_TYP ='AD_C'";
 				PreparedStatement ps = Con.prepareStatement(sql);
 				System.out.println("Passed login NAME is "+e.getEMP_ID());
 				ps.setString(1, String.valueOf(e.getEMP_ID()));
@@ -389,5 +389,31 @@ int rs;
 					  		}
 					return rs;
 			}
+			// function to fetch the leave balance called by leaveinfocontroller
+			public Employee fetchLeaveBalance(Employee e)throws SQLException, ClassNotFoundException{
+				Employee elocal = new Employee();
+				try {
+					System.out.println("Inside fetchLeaveBalance function");
+					Connection Con = MySQLConnUtils.getMySQLConnection();
+					String sql = "SELECT VAC_BAL, SICK_BAL FROM LEAVE_BAL WHERE EMP_ID = ?";
+					PreparedStatement ps = Con.prepareStatement(sql);
+					System.out.println("Passed login NAME is "+e.getEMP_ID());
+					ps.setString(1, String.valueOf(e.getEMP_ID()));
+					ResultSet rs= ps.executeQuery();
+					while(rs.next()){
+						elocal.setS_LEAVE(Float.parseFloat(rs.getString("SICK_BAL")));
+						System.out.println("Sick Bal is "+elocal.getS_LEAVE());
+						elocal.setC_LEAVE(Float.parseFloat(rs.getString("VAC_BAL")));
+						System.out.println("Vacation Bal is "+elocal.getC_LEAVE());
+						}
+					rs.close();
+					Con.close();
+					}
+				catch(SQLException ex) {
+					  	System.out.println(ex); 
+				   		}
+					return elocal;
+		}
+			
 }
 

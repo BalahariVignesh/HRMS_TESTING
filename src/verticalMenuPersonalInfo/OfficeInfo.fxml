@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -134,22 +132,6 @@
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
-         <children>
-            <JFXButton fx:id="Cancel_Office_btn" alignment="CENTER" buttonType="RAISED" onAction="#CancelOinfo" prefHeight="39.0" prefWidth="113.0" style="-fx-background-color: #696969;" text="CANCEL" textFill="#f5f2f2" GridPane.columnIndex="2">
-               <font>
-                  <Font size="18.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <graphic>
-                  <FontAwesomeIconView fill="#eee5e5" glyphName="HOME" size="20.0" />
-               </graphic>
-               <GridPane.margin>
-                  <Insets left="32.0" />
-               </GridPane.margin>
-            </JFXButton>
-         </children>
       </GridPane>
    </children>
 </Pane>

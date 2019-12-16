@@ -4,23 +4,29 @@ import com.jfoenix.controls.JFXButton;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.stage.Stage;
 
 public class AssetsAddNewController {
 	
-    @FXML
-    private JFXButton SavePermanentAddress;
+	   @FXML
+	    private JFXButton RequestNewAsset;
 
-    @FXML
-    private JFXButton CLOSE;
+	    @FXML
+	    public JFXButton CLOSE;  
+	    
+	    
+	    @FXML
+	    void CloseWindow(ActionEvent event) {
+	    // get a handle to the stage
+	    Stage stage = (Stage) CLOSE.getScene().getWindow();
+	    // do what you have to do
+	    stage.close();
+	    }
 
-    @FXML
-    void CloseWindow(ActionEvent event) {
 
-    }
+	    @FXML
+	    void RequestNewAssetFunction(ActionEvent event) {
 
-    @FXML
-    void DisplayPermanentAddress(ActionEvent event) {
-
-    }
+	    }
     
 }

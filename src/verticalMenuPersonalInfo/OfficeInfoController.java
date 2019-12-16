@@ -10,6 +10,7 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 import loginController.LoginController;
 
 public class OfficeInfoController {
@@ -36,16 +37,6 @@ public class OfficeInfoController {
 
 	    @FXML
 	    private JFXButton Edit_Email_btn;
-
-	    @FXML
-	    void EditContactDetails(ActionEvent event) {
-
-	    }
-
-	    @FXML
-	    void EditEmailId(ActionEvent event) {
-
-	    }
 	    
 	    @FXML
 	    public void initialize() {
