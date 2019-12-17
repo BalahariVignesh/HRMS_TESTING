@@ -692,10 +692,39 @@ int rs1;
 				
 			}
 			
-			//insert employee function
-			public int insertEmployee(Employee e)throws SQLException, ClassNotFoundException{
+			//insert employee function number 1
+			public Employee insertEmployee(Employee e)throws SQLException, ClassNotFoundException{
+				Employee elocal = new Employee();
 					try {
 						System.out.println("Inside insert employee function");
+						Connection Con = MySQLConnUtils.getMySQLConnection();
+						String sql = "INSERT INTO EMPLOYEE (Fname, Mname, Lname, DOB, GENDER, SSN, MAR, C_SALARY) VALUE (?,?,?,?, ?,?,?,?)";
+						PreparedStatement ps = Con.prepareStatement(sql);
+						System.out.println("Passed login NAME is "+e.getEMP_ID());
+						ps.setString(1, e.getFNAME());
+						ps.setString(2, e.getMNAME());
+						ps.setString(3, e.getLNAME());
+						ps.setString(4, String.valueOf(e.getDOB()));
+						ps.setString(5, e.getGENDER());
+						ps.setString(6, String.valueOf(e.get_sno()));
+						ps.setString(7, e.getMAR());
+						ps.setString(8, String.valueOf(e.getC_SALARY()));
+						int sno = e.get_sno();
+						System.out.println("Printing from testdao"+sno);
+						elocal.setPass_ssn(sno);
+						rs= ps.executeUpdate();
+						elocal.setRs(rs);
+						Con.close();
+						}
+						catch(SQLException ex) {
+						  	System.out.println(ex); 
+						  		}
+						return elocal;
+				}
+			//insert employee function number 1
+			public int insertEmployee2(Employee e)throws SQLException, ClassNotFoundException{
+					try {
+						System.out.println("Inside insert employee 2 function");
 						Connection Con = MySQLConnUtils.getMySQLConnection();
 						String sql = "INSERT INTO EMPLOYEE (Fname, Mname, Lname, DOB, GENDER, SSN, MAR, C_SALARY) VALUE (?,?,?,?, ?,?,?,?)";
 						PreparedStatement ps = Con.prepareStatement(sql);
@@ -716,5 +745,154 @@ int rs1;
 						  		}
 						return rs;
 				}
+			
+			//insert employee function number 1
+			public int fetchempid(int sno)throws SQLException, ClassNotFoundException{
+					try {
+						System.out.println("Inside fetchempid function");
+						Connection Con = MySQLConnUtils.getMySQLConnection();
+						String sql = "select * from employee where ssn =?";
+						PreparedStatement ps = Con.prepareStatement(sql);
+						System.out.println("Passed ssn is"+sno);
+						ps.setInt(1, sno);
+						//ps.setString(1, String.valueOf(sno));
+						ResultSet rset = ps.executeQuery();
+						while(rset.next()) {
+							rs=Integer.parseInt(rset.getString("EMP_ID"));
+							System.out.println("Retrieved empid is "+rs);
+						}
+						Con.close();
+						}
+						catch(SQLException ex) {
+						  	System.out.println(ex); 
+						  		}
+						return rs;
+				}
+			//function for editing office address info
+			public int editofficeaddressinfo(Employee e)throws SQLException, ClassNotFoundException{
+				Employee elocal = new Employee();
+				try {
+					System.out.println("Inside edit OFFICE address info function");
+					Connection Con = MySQLConnUtils.getMySQLConnection();
+					System.out.println("Passed login NAME is "+e.getEMP_ID());
+					String sql = "INSERT INTO address(EMP_ID, ADD_TYP,ADDR,STREET,CITY,COUNTRY,ZIP) VALUES (?,?,?,?,?,?,?)";
+					System.out.println("Inserting office address");
+					PreparedStatement ps1 = Con.prepareStatement(sql);
+					ps1.setString(1, String.valueOf(e.getEMP_ID()));
+					ps1.setString(2,"AD_O");
+					ps1.setString(3,e.getOFFICIAL_ADDR());
+					//System.out.println("Printing from inside the testdao"+elocal.getOFFICIAL_ADDR());
+					ps1.setString(4,e.getOFFICIAL_STREET());
+					ps1.setString(5,e.getOFFICIAL_CITY());
+					ps1.setString(6,e.getOFFICIAL_COUNTRY());
+					ps1.setString(7,String.valueOf(e.getOFFICIAL_ZIP()));
+					rs1 = ps1.executeUpdate();
+					return rs1;
+					}
+				catch(SQLException ex) {
+				  	System.out.println(ex); 
+				   		}
+					return rs;
+			}
+			//function for editing office contact address info
+			public int editofficecontact(Employee e)throws SQLException, ClassNotFoundException{
+				Employee elocal = new Employee();
+				try {
+					System.out.println("Inside edit OFFICE contact edit function");
+					Connection Con = MySQLConnUtils.getMySQLConnection();
+					System.out.println("Passed login NAME is "+e.getEMP_ID());
+					String sql = "INSERT INTO CONTACT(CONTACT,EMP_ID,CON_TYP) VALUE ( ?,?,?)";
+					System.out.println("Inserting office contact");
+					PreparedStatement ps1 = Con.prepareStatement(sql);
+					ps1.setInt(1,e.getOCONTACT());
+					ps1.setString(2, String.valueOf(e.getEMP_ID()));
+					ps1.setString(3,"C_O");
+					rs1 = ps1.executeUpdate();
+					return rs1;
+					
+					//rs.close();
+					//Con.close();
+					}
+				catch(SQLException ex) {
+				  	System.out.println(ex); 
+				   		}
+					return rs;
+			}
+			//function for editing office email address info
+			public int editofficeemail(Employee e)throws SQLException, ClassNotFoundException{
+				//Employee elocal = new Employee();
+				try {
+					System.out.println("Inside edit OFFICE email edit function");
+					Connection Con = MySQLConnUtils.getMySQLConnection();
+					System.out.println("Passed login NAME is "+e.getEMP_ID());
+					String sql = "Insert  into email (EMAIL,EMP_ID,EMAIL_TYP) VALUE (?,?,?) ";
+					System.out.println("Inserting office contact");
+					PreparedStatement ps1 = Con.prepareStatement(sql);
+					ps1.setString(1,e.getOFFICIAL_EMAIL());
+					ps1.setString(2, String.valueOf(e.getEMP_ID()));
+					ps1.setString(3,"C_O");
+					rs1 = ps1.executeUpdate();
+					return rs1;
+					
+					//rs.close();
+					//Con.close();
+					}
+				catch(SQLException ex) {
+				  	System.out.println(ex); 
+				   		}
+					return rs;
+			}
+			//function for editing hr log level address info
+			public int hrlog(Employee e)throws SQLException, ClassNotFoundException{
+				Employee elocal = new Employee();
+				try {
+					System.out.println("Inside edit OFFICE hr log edit function");
+					Connection Con = MySQLConnUtils.getMySQLConnection();
+					System.out.println("Passed login NAME is "+e.getEMP_ID());
+					String sql = "insert into HR_LOG (EMP_ID , LEV, BRANCH, STAT,SALARY, CHANGE_TS, CHANGED_BY) VALUES (?,?,?,?,?,?,?)";
+					System.out.println("Inserting HRLOG level");
+					PreparedStatement ps1 = Con.prepareStatement(sql);
+					ps1.setString(1, String.valueOf(e.getEMP_ID()));
+					ps1.setInt(2,e.getC_LEVEL());
+					ps1.setString(3,e.getC_Branch());
+					ps1.setString(4, e.getC_STATUS());
+					ps1.setString(5,String.valueOf(0));
+					ps1.setString(6, "curdate()");
+					ps1.setInt(7,e.getPass_ssn());//here alone hr id is passed
+					rs1 = ps1.executeUpdate();
+					return rs1;
+					
+					//rs.close();
+					//Con.close();
+					}
+				catch(SQLException ex) {
+				  	System.out.println(ex); 
+				   		}
+					return rs;
+			}
+			//function for editing office level address info
+			public int levelupdate(Employee e)throws SQLException, ClassNotFoundException{
+				Employee elocal = new Employee();
+				try {
+					System.out.println("Inside edit OFFICE level edit function");
+					Connection Con = MySQLConnUtils.getMySQLConnection();
+					System.out.println("Passed login NAME is "+e.getEMP_ID());
+					String sql = "INSERT INTO LEVELS (EMP_ID, LEVEL_ID, S_DATE) VALUES (?, ?, ?)";
+					System.out.println("Inserting office level");
+					PreparedStatement ps1 = Con.prepareStatement(sql);
+					ps1.setString(1, String.valueOf(e.getEMP_ID()));
+					ps1.setInt(2,e.getC_LEVEL());
+					ps1.setString(3,"curdate()");
+					rs1 = ps1.executeUpdate();
+					return rs1;
+					
+					//rs.close();
+					//Con.close();
+					}
+				catch(SQLException ex) {
+				  	System.out.println(ex); 
+				   		}
+					return rs;
+			}
 }
 

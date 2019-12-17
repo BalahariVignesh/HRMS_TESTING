@@ -122,6 +122,22 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
                   </JFXTextField>
+                  <Label layoutX="10.0" layoutY="242.0" prefHeight="50.0" prefWidth="252.0" text="COUNTRY">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+                  <JFXTextField fx:id="NewCountry" layoutX="10.0" layoutY="292.0" prefHeight="27.0" prefWidth="300.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </JFXTextField>
                   <Label layoutX="10.0" layoutY="333.0" prefHeight="29.0" prefWidth="252.0" text="ZIP :">
                      <font>
                         <Font size="24.0" />
@@ -248,17 +264,17 @@
                   </JFXRadioButton>
                   <JFXRadioButton fx:id="EMPLOYEE" layoutX="10.0" layoutY="510.0" text="EMPLOYEE">
                      <VBox.margin>
-                        <Insets left="80.0" top="-16.0" />
+                        <Insets left="80.0" top="-20.0" />
                      </VBox.margin>
                   </JFXRadioButton>
                   <JFXRadioButton fx:id="MANAGER" layoutX="10.0" layoutY="527.0" text="MANAGER">
                      <VBox.margin>
-                        <Insets left="180.0" top="-17.0" />
+                        <Insets left="190.0" top="-21.0" />
                      </VBox.margin>
                   </JFXRadioButton>
                   <JFXRadioButton fx:id="PMO" layoutX="190.0" layoutY="541.0" text="PMO">
                      <VBox.margin>
-                        <Insets left="280.0" top="-18.0" />
+                        <Insets left="300.0" top="-21.0" />
                      </VBox.margin>
                   </JFXRadioButton>
                </children>

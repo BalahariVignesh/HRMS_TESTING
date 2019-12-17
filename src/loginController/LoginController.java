@@ -23,12 +23,23 @@ import java.sql.SQLException;
 import org.planning.test.jdbc.*;
 public class LoginController {
 	static Employee epass = new Employee();
+	int pass_ssn_param;
 	//static int passint;
 	public Employee getEmployee() {
 		return epass;
 	}
+	
 
-    @FXML
+    public int getPass_ssn_param() {
+		return pass_ssn_param;
+	}
+
+	public void setPass_ssn_param(int pass_ssn_param) {
+		this.pass_ssn_param = pass_ssn_param;
+	}
+
+
+	@FXML
     private Pane LoginMainPane;
     
     @FXML

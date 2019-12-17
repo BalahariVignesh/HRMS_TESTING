@@ -37,6 +37,10 @@ public class Employee {
 	private float BONUS;
 	//message for passing search parameters
 	private String SearchParam;
+	//passing ssn param
+	private int pass_ssn;
+	//storing result set
+	private int rs;
 	
 	 // .matches('.{10}')
 	public Employee(int EMP_ID, String FNAME, String LNAME, String C_Branch, String C_STATUS, int C_PROJ) {
@@ -523,6 +527,18 @@ public String getSearchParam() {
 	}
 	public void setGENDER(String gENDER) {
 		GENDER = gENDER;
+	}
+	public int getPass_ssn() {
+		return pass_ssn;
+	}
+	public void setPass_ssn(int pass_ssn) {
+		this.pass_ssn = pass_ssn;
+	}
+	public int getRs() {
+		return rs;
+	}
+	public void setRs(int rs) {
+		this.rs = rs;
 	}
 	//////////////////////////////////////////////////////////////
 	public int getIdProperty() {
