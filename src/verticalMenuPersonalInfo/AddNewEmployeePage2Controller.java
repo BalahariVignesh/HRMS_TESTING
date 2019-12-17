@@ -135,8 +135,8 @@ public class AddNewEmployeePage2Controller {
 	  	    {
 	  	    	System.out.println("level not succcess");
 	  	    }
-	  	    //int result = t.insertEmployee2(e);
-	  	    
+	 
+	  	    //INSERT CODE HERE FOR CLOSING THE WINDOW AFTER ALL UPDATE
 
 	    }
 	    
