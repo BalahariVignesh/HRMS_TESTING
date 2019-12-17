@@ -1,5 +1,5 @@
 package HrManagerPages;
-
+import verticalMenuPersonalInfo.VerticalMenuController;
 import java.io.IOException;
 
 import javax.swing.JButton;
@@ -29,6 +29,8 @@ import loginController.LoginController;
 import org.planning.test.jdbc.*;
 
 public class HrHomePageController {
+	private final LoginController contrl = new LoginController();
+	Employee epass = contrl.getEmployee();
 	@FXML
     private JFXButton PersonalInfo;
 
@@ -43,7 +45,13 @@ public class HrHomePageController {
 
     @FXML
     private JFXButton PAYROLL;
-
+    
+    @FXML
+    private JFXButton LEAVES;
+    
+    @FXML
+    public Text welcomeTitle;
+    
     @FXML
     private JFXButton ASSETS;
 
@@ -78,16 +86,127 @@ public class HrHomePageController {
 
     @FXML
     void handleClicks(ActionEvent event) throws IOException {
+
+    	if(event.getSource() == PersonalInfo)
+    	{
+    		mainPane.getChildren().clear();
+    		UserIcon.setVisible(false);
+    		welcomeTitle.setVisible(false);
+    		Title.setText("PERSONAL INFORMATION");
+    		Title.setStyle("-fx-font-size:36px");
+    		TitlePane.setStyle("-fx-background-color:#4250EB");
+    		Breadcrumb.setText("/HOME/HR/PERSONALINFO");
+    		
+    		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/JavaJdbcTest/src/verticalMenuPersonalInfo/PersonalInfo.fxml"));
+    		
+    	    mainPane.getChildren().add(fxmlLoader.load());
+    	    
+    	  
+        	
+    	}
+    	else if(event.getSource() == CONTACT)
+    	{
+    		mainPane.getChildren().clear();
+    		UserIcon.setVisible(false);
+    		welcomeTitle.setVisible(false);
+    		Title.setText("CONTACT");
+    		Title.setStyle("-fx-font-size:36px");
+    		TitlePane.setStyle("-fx-background-color:#4250EB");
+    		Breadcrumb.setText("/HOME/HR/CONTACT");
+    		System.out.println("flag1");
+    		try{FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/verticalMenuPersonalInfo/ContactInfo.fxml"));
+    		System.out.println("flag2");
+    		mainPane.getChildren().add(fxmlLoader.load());}
+    		catch(Exception ex) {
+    			System.out.println(ex);
+    		}
+    		System.out.println("flag3");
+    	}
+    	else if(event.getSource() == ADDRESS)
+    	{
+    		mainPane.getChildren().clear();
+    		UserIcon.setVisible(false);
+    		welcomeTitle.setVisible(false);
+    		Title.setText("ADDRESS");
+    		Title.setStyle("-fx-font-size:36px");
+    		TitlePane.setStyle("-fx-background-color:#4250EB");
+    		Breadcrumb.setText("/HOME/HR/ADDRESS");
+    		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/verticalMenuPersonalInfo/AddressInfo.fxml"));
+    		mainPane.getChildren().add(fxmlLoader.load());
+    	}
+    	else if(event.getSource() == OFFICE)
+    	{
+    		mainPane.getChildren().clear();
+    		UserIcon.setVisible(false);
+    		welcomeTitle.setVisible(false);
+    		Title.setText("OFFICE");
+    		Title.setStyle("-fx-font-size:36px");
+    		TitlePane.setStyle("-fx-background-color:#4250EB");
+    		Breadcrumb.setText("/HOME/HR/OFFICE");
+    		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/verticalMenuPersonalInfo/OfficeInfo.fxml"));
+    		mainPane.getChildren().add(fxmlLoader.load());
+    	}
+    	else if(event.getSource() == PAYROLL)
+    	{
+    		mainPane.getChildren().clear();
+    		UserIcon.setVisible(false);
+    		welcomeTitle.setVisible(false);
+    		Title.setText("PAYROLL");
+    		Title.setStyle("-fx-font-size:36px");
+    		TitlePane.setStyle("-fx-background-color:#4250EB");
+    		Breadcrumb.setText("/HOME/HR/PAYROLL");
+    		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/verticalMenuPersonalInfo/PayrollInfo.fxml"));
+    		mainPane.getChildren().add(fxmlLoader.load());
+    	}
+    	else if(event.getSource() == ASSETS)
+    	{
+    		mainPane.getChildren().clear();
+    		UserIcon.setVisible(false);
+    		welcomeTitle.setVisible(false);
+    		Title.setText("ASSETS");
+    		Title.setStyle("-fx-font-size:36px");
+    		TitlePane.setStyle("-fx-background-color:#4250EB");
+    		Breadcrumb.setText("/HOME/HR/ASSETS");
+    		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/verticalMenuPersonalInfo/AssetsInfo.fxml"));
+    		mainPane.getChildren().add(fxmlLoader.load());
+    	}
+    	else if(event.getSource() == EDUCATIONAL)
+    	{
+    		mainPane.getChildren().clear();
+    		UserIcon.setVisible(false);
+    		welcomeTitle.setVisible(false);
+    		Title.setText("EDUCATIONAL");
+    		Title.setStyle("-fx-font-size:36px");
+    		TitlePane.setStyle("-fx-background-color:#4250EB");
+    		Breadcrumb.setText("/HOME/HR/EDUCATIONAL");
+    		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/verticalMenuPersonalInfo/EducationalInfo.fxml"));
+    		mainPane.getChildren().add(fxmlLoader.load());
+    	}
+    	else if(event.getSource() == LEAVES)
+    	{
+    		mainPane.getChildren().clear();
+    		UserIcon.setVisible(false);
+    		welcomeTitle.setVisible(false);
+    		Title.setText("LEAVES");
+    		Title.setStyle("-fx-font-size:36px");
+    		TitlePane.setStyle("-fx-background-color:#4250EB");
+    		Breadcrumb.setText("/HOME/HR/LEAVES");
+    		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/verticalMenuPersonalInfo/LeaveInfo.fxml"));
+    		mainPane.getChildren().add(fxmlLoader.load());
+    	}
+
     	
     	if(event.getSource() == HROPERATIONS )
     	{
+    	    mainPane.getChildren().clear();
+    		UserIcon.setVisible(false);
+    		welcomeTitle.setVisible(false);
+    		Title.setText("HR OPERATIONS");
+    		Title.setStyle("-fx-font-size:36px");
+    		TitlePane.setStyle("-fx-background-color:#4250EB");
+    		Breadcrumb.setText("/HOME/HR/HR OPERATION");
     		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/HrManagerPages/HrOperations.fxml"));
-    	    Parent root1 = (Parent) fxmlLoader.load();
-    	    Stage stage = new Stage();
-    	    stage.initModality(Modality.APPLICATION_MODAL);
-    	    stage.initStyle(StageStyle.UNDECORATED);
-    	    stage.setScene(new Scene(root1));  
-    	    stage.show();
+    		mainPane.getChildren().add(fxmlLoader.load());
     	}
 
     }
