@@ -37,7 +37,7 @@ int rs1;
 		}
 	
 	//fetchEmployeePersonalDetails is called by PersonalInfoController   
-	public Employee fetchEmployeePersonalDetails(Employee e) {
+		public Employee fetchEmployeePersonalDetails(Employee e) {
 				Employee elocal = new Employee();
 				try {
 					System.out.println("Inside fetch function");
@@ -708,12 +708,6 @@ int rs1;
 						ps.setString(6, String.valueOf(e.get_sno()));
 						ps.setString(7, e.getMAR());
 						ps.setString(8, String.valueOf(e.getC_SALARY()));
-						
-//						System.out.println("flag1");
-//						ps.setString(1,e.getPERSONAL_EMAIL());
-//						System.out.println("flag2");
-//						ps.setString(2,String.valueOf(e.getEMP_ID()));
-//						System.out.println("flag3");
 						rs= ps.executeUpdate();
 						Con.close();
 						}

@@ -7,10 +7,14 @@ import com.jfoenix.controls.JFXTextField;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
-
+import javafx.stage.StageStyle;
 import loginController.LoginController;
 
 import java.sql.SQLException;
@@ -134,7 +138,6 @@ public class AddNewEmployeePageController{
   	    int result = t.insertEmployee(e);
   	    if(result>0) {
   	    	//code to open second window of insert and close this window
-  	    	bbb
   	    }
   	    else {
   	    	//ask to reinsert the values, this window should not close
