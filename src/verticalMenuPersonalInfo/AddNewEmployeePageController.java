@@ -10,21 +10,19 @@ import javafx.fxml.FXML;
 import javafx.stage.Stage;
 
 import loginController.LoginController;
+
+import java.sql.SQLException;
+
 import org.planning.test.jdbc.*;
 
 public class AddNewEmployeePageController{
 	private final LoginController contrl = new LoginController();
 	Employee epass = contrl.getEmployee();
-	
-
     @FXML
     private JFXButton CLOSE;
 
     @FXML
     private JFXButton NewEmployeeData;
-
-    @FXML
-    private JFXTextField EmployeeId;
 
     @FXML
     private JFXTextField NewFirstName;
@@ -51,25 +49,13 @@ public class AddNewEmployeePageController{
     private JFXTextField NewSSN;
 
     @FXML
-    private JFXTextField NewAddLine;
+    private JFXRadioButton SINGLE;
 
     @FXML
-    private JFXTextField NewStreet;
+    private JFXRadioButton MARRIED;
 
     @FXML
-    private JFXTextField NewCity;
-
-    @FXML
-    private JFXTextField NewCountry;
-
-    @FXML
-    private JFXTextField NewZIP;
-
-    @FXML
-    private JFXTextField NewPersonalContact;
-
-    @FXML
-    private JFXTextField NewPersonalEmail;
+    private JFXRadioButton DIVORCED;
 
     @FXML
     private JFXTextField NewEducation;
@@ -90,10 +76,14 @@ public class AddNewEmployeePageController{
     private JFXTextField NewStatus;
 
     @FXML
-    void AddNewEmployee(ActionEvent event) {
-    	
+    void AddNewEmployee(ActionEvent event) throws ClassNotFoundException, SQLException {
+    	Employee e = new Employee();
+    	System.out.println("Inside Contact Info Controller"+epass.getEMP_ID());
+  	    e.setEMP_ID(epass.getEMP_ID());
+  	    TestDao t = new TestDao();
+  	    Employee enew = t.insertEmployee(e);
     }
-    
+
     @FXML
     void CloseWindow(ActionEvent event) {
         // get a handle to the stage
