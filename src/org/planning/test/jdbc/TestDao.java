@@ -700,11 +700,20 @@ int rs1;
 						String sql = "INSERT INTO EMPLOYEE (Fname, Mname, Lname, DOB, GENDER, SSN, MAR, C_SALARY) VALUE (?,?,?,?, ?,?,?,?)";
 						PreparedStatement ps = Con.prepareStatement(sql);
 						System.out.println("Passed login NAME is "+e.getEMP_ID());
-						System.out.println("flag1");
-						ps.setString(1,e.getPERSONAL_EMAIL());
-						System.out.println("flag2");
-						ps.setString(2,String.valueOf(e.getEMP_ID()));
-						System.out.println("flag3");
+						ps.setString(1, e.getFNAME());
+						ps.setString(2, e.getMNAME());
+						ps.setString(3, e.getLNAME());
+						ps.setString(4, String.valueOf(e.getDOB()));
+						ps.setString(5, e.getGENDER());
+						ps.setString(6, String.valueOf(e.get_sno()));
+						ps.setString(7, e.getMAR());
+						ps.setString(8, String.valueOf(e.getC_SALARY()));
+						
+//						System.out.println("flag1");
+//						ps.setString(1,e.getPERSONAL_EMAIL());
+//						System.out.println("flag2");
+//						ps.setString(2,String.valueOf(e.getEMP_ID()));
+//						System.out.println("flag3");
 						rs= ps.executeUpdate();
 						Con.close();
 						}
