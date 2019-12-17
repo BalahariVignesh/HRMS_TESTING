@@ -691,5 +691,27 @@ int rs1;
 		    	return emplist;
 				
 			}
+			
+			//insert employee function
+			public int insertEmployee(Employee e)throws SQLException, ClassNotFoundException{
+					try {
+						System.out.println("Inside insert employee function");
+						Connection Con = MySQLConnUtils.getMySQLConnection();
+						String sql = "INSERT INTO EMPLOYEE (Fname, Mname, Lname, DOB, GENDER, SSN, MAR, C_SALARY) VALUE (?,?,?,?, ?,?,?,?)";
+						PreparedStatement ps = Con.prepareStatement(sql);
+						System.out.println("Passed login NAME is "+e.getEMP_ID());
+						System.out.println("flag1");
+						ps.setString(1,e.getPERSONAL_EMAIL());
+						System.out.println("flag2");
+						ps.setString(2,String.valueOf(e.getEMP_ID()));
+						System.out.println("flag3");
+						rs= ps.executeUpdate();
+						Con.close();
+						}
+						catch(SQLException ex) {
+						  	System.out.println(ex); 
+						  		}
+						return rs;
+				}
 }
 
