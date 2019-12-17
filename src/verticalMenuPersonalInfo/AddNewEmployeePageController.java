@@ -81,7 +81,15 @@ public class AddNewEmployeePageController{
     	System.out.println("Inside Contact Info Controller"+epass.getEMP_ID());
   	    e.setEMP_ID(epass.getEMP_ID());
   	    TestDao t = new TestDao();
-  	    Employee enew = t.insertEmployee(e);
+  	    e.setFNAME(NewFirstName.getText());
+  	    e.setMNAME(NewMiddleName.getText());
+  	    e.setLNAME(NewLastName.getText());
+  	    e.setDOB(java.sql.Date.valueOf(NewDOB.getValue()));
+  	    e.set_sno(Integer.parseInt(NewSSN.getText()));
+  	    e.setC_SALARY(Float.parseFloat(NewCTC.getText()));
+  	  
+  	    int result = t.insertEmployee(e);
+  	    
     }
 
     @FXML
