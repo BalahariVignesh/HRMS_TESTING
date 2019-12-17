@@ -32,8 +32,21 @@ public class Employee {
 	private String MANAGER;
 	private String PROJECT_NAME;
 	
-	 // .matches('.{10}')
+	//parameters for payroll
+	private float BONUS;
+	//message for passing search parameters
+	private String SearchParam;
 	
+	 // .matches('.{10}')
+	public Employee(int EMP_ID, String FNAME, String LNAME, String C_Branch, String C_STATUS, int C_PROJ) {
+		this.EMP_ID=EMP_ID;
+		this.FNAME = FNAME;
+		this.LNAME = LNAME;
+		this.C_Branch = C_Branch;
+		this.C_STATUS = C_STATUS;
+		this.C_PROJ = C_PROJ;
+		
+	}
 	public String getPROJECT_NAME() {
 		return PROJECT_NAME;
 	}
@@ -492,7 +505,19 @@ public class Employee {
 	public void setOCONTACT(int oCONTACT) {
 		OCONTACT = oCONTACT;
 	}
-//////////////////////////////////////////////////////////////
+public String getSearchParam() {
+		return SearchParam;
+	}
+	public void setSearchParam(String searchParam) {
+		SearchParam = searchParam;
+	}
+	public float getBONUS() {
+		return BONUS;
+	}
+	public void setBONUS(float bONUS) {
+		BONUS = bONUS;
+	}
+	//////////////////////////////////////////////////////////////
 	public int getIdProperty() {
 		return idProperty.get();
 	}

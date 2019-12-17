@@ -54,34 +54,21 @@
                                     <Insets top="90.0" />
                                  </VBox.margin>
                               </Text>
-                              <Text layoutX="10.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PAYOUT PERIOD" textAlignment="CENTER" wrappingWidth="249.13671875">
-                                 <font>
-                                    <Font size="24.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets top="11.0" />
-                                 </VBox.margin>
-                              </Text>
                               <Text layoutX="10.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BONUS" textAlignment="CENTER" wrappingWidth="249.13671875">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                                  <VBox.margin>
-                                    <Insets top="13.0" />
+                                    <Insets top="24.0" />
                                  </VBox.margin>
                               </Text>
                            </children>
                         </VBox>
                         <VBox layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="250.0">
                            <children>
-                              <JFXTextField fx:id="Vaccation_Balance" editable="false">
+                              <JFXTextField fx:id="Annual_Salary" editable="false">
                                  <VBox.margin>
                                     <Insets top="88.0" />
-                                 </VBox.margin>
-                              </JFXTextField>
-                              <JFXTextField fx:id="PayOutPeriod" editable="false" layoutX="10.0" layoutY="30.0">
-                                 <VBox.margin>
-                                    <Insets top="23.0" />
                                  </VBox.margin>
                               </JFXTextField>
                               <JFXTextField fx:id="Bonus" editable="false" layoutX="20.0" layoutY="111.0">
