@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="verticalMenuPersonalInfo.AddNewEmployeePage2Controller">
+   <children>
+      <VBox prefHeight="112.0" prefWidth="900.0" style="-fx-background-color: #334CFF;">
+         <children>
+            <GridPane prefHeight="112.0" prefWidth="873.0" style="-fx-background-color: #FFAC2E;">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="393.0" minWidth="10.0" prefWidth="134.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="670.0" minWidth="10.0" prefWidth="666.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <ImageView fitHeight="114.0" fitWidth="133.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@logo1.png" />
+                     </image>
+                  </ImageView>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="ADD NEW EMPLOYEE" GridPane.columnIndex="1">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="20.0" />
+                     </GridPane.margin>
+                  </Text>
+                  <JFXButton fx:id="CLOSE" alignment="TOP_RIGHT" contentDisplay="RIGHT" onAction="#CloseWindow" text="X" textAlignment="CENTER" textFill="#f8f7f7" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="640.0" top="-80.0" />
+                     </GridPane.margin>
+                  </JFXButton>
+               </children>
+            </GridPane>
+         </children>
+      </VBox>
+      <GridPane layoutY="112.0" prefHeight="682.0" prefWidth="900.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="649.0" minHeight="10.0" prefHeight="645.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="338.0" minHeight="10.0" prefHeight="37.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label prefHeight="50.0" prefWidth="252.0" text="ADDRESS INFO">
+                     <font>
+                        <Font name="System Bold Italic" size="24.0" />
+                     </font>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="10.0" prefHeight="43.0" prefWidth="252.0" text="ADDRESS LINE :">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+                  <JFXTextField fx:id="NewAddressLine" layoutX="10.0" layoutY="73.0" prefHeight="33.0" prefWidth="287.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </JFXTextField>
+                  <Label layoutX="10.0" layoutY="120.0" prefHeight="45.0" prefWidth="252.0" text="STREET :">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+                  <JFXTextField fx:id="NewStreet" layoutX="10.0" layoutY="183.0" prefHeight="33.0" prefWidth="287.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </JFXTextField>
+                  <Label layoutX="10.0" layoutY="230.0" prefHeight="50.0" prefWidth="252.0" text="CITY :">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+                  <JFXTextField fx:id="NewCity" layoutX="10.0" layoutY="293.0" prefHeight="27.0" prefWidth="300.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </JFXTextField>
+                  <Label layoutX="10.0" layoutY="333.0" prefHeight="29.0" prefWidth="252.0" text="ZIP :">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+                  <JFXTextField fx:id="NewZip" layoutX="10.0" layoutY="383.0" prefHeight="10.0" prefWidth="450.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </JFXTextField>
+               </children>
+            </VBox>
+            <VBox layoutX="310.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+               <children>
+                  <Label prefHeight="55.0" prefWidth="252.0" text="OFFICE INFO">
+                     <font>
+                        <Font name="System Bold Italic" size="24.0" />
+                     </font>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+                  <Label prefHeight="15.0" prefWidth="252.0" text="OFFICE CONTACT:">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+                  <JFXTextField fx:id="NewOfficeContact" prefHeight="32.0" prefWidth="300.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </JFXTextField>
+                  <Label layoutX="10.0" layoutY="73.0" prefHeight="6.0" prefWidth="252.0" text="OFFICE EMAIL ID:">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+                  <JFXTextField fx:id="NewOfficeEmail" layoutX="10.0" layoutY="117.0" prefHeight="32.0" prefWidth="300.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </JFXTextField>
+                  <Label layoutX="10.0" layoutY="164.0" prefHeight="12.0" prefWidth="252.0" text="LEVEL:">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+                  <JFXTextField fx:id="NewLevel" layoutX="10.0" layoutY="208.0" prefHeight="32.0" prefWidth="300.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </JFXTextField>
+                  <Label layoutX="10.0" layoutY="255.0" prefHeight="7.0" prefWidth="252.0" text="BRANCH:">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+                  <JFXTextField fx:id="NewBranch" layoutX="10.0" layoutY="299.0" prefHeight="32.0" prefWidth="300.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </JFXTextField>
+                  <Label layoutX="10.0" layoutY="437.0" prefHeight="23.0" prefWidth="252.0" text="STATUS:">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+                  <JFXTextField fx:id="NewStatus" layoutX="10.0" layoutY="481.0" prefHeight="32.0" prefWidth="300.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </JFXTextField>
+                  <Label layoutX="10.0" layoutY="393.0" prefHeight="35.0" prefWidth="296.0" text="EMPLOYEE ACCESS TYPE:">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <JFXRadioButton text="HR">
+                     <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </VBox.margin>
+                  </JFXRadioButton>
+                  <JFXRadioButton layoutX="10.0" layoutY="510.0" text="EMPLOYEE">
+                     <VBox.margin>
+                        <Insets left="80.0" top="-16.0" />
+                     </VBox.margin>
+                  </JFXRadioButton>
+                  <JFXRadioButton layoutX="10.0" layoutY="527.0" text="PMO">
+                     <VBox.margin>
+                        <Insets left="180.0" top="-17.0" />
+                     </VBox.margin>
+                  </JFXRadioButton>
+               </children>
+            </VBox>
+            <JFXButton fx:id="NewEmployeeData" buttonType="RAISED" onAction="#AddNewEmployee" prefHeight="46.0" prefWidth="233.0" style="-fx-background-color: #008000;" text="ADD EMPLOYEE" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="PLUS" size="20.0" />
+               </graphic>
+               <GridPane.margin>
+                  <Insets bottom="30.0" left="100.0" />
+               </GridPane.margin>
+            </JFXButton>
+         </children>
+      </GridPane>
+   </children>
+</Pane>
