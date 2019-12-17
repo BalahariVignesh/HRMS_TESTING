@@ -11,6 +11,7 @@ public class Employee {
 	private String MNAME;
 	private String LNAME;
 	private String MAR;
+	private String GENDER;
 	
 
 	//for login
@@ -516,6 +517,12 @@ public String getSearchParam() {
 	}
 	public void setBONUS(float bONUS) {
 		BONUS = bONUS;
+	}
+	public String getGENDER() {
+		return GENDER;
+	}
+	public void setGENDER(String gENDER) {
+		GENDER = gENDER;
 	}
 	//////////////////////////////////////////////////////////////
 	public int getIdProperty() {
