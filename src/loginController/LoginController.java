@@ -105,7 +105,7 @@ public class LoginController {
         		System.out.println("Logged in as HR");
         		Stage stage = (Stage) CLOSE.getScene().getWindow();
         		System.out.println("flag");
-               	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/HrManagerPages/HrHomePage.fxml"));
+               	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/verticalMenuPersonalInfo/HrHomePage.fxml"));
                	System.out.println("flag2");
         	    Parent root1 = (Parent) fxmlLoader.load();
         	    System.out.println("flag3");

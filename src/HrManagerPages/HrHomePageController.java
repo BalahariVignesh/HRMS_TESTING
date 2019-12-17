@@ -1,7 +1,9 @@
 package HrManagerPages;
-import verticalMenuPersonalInfo.VerticalMenuController;
+import verticalMenuPersonalInfo.*;
 import java.io.IOException;
+import java.nio.file.Paths;
 
+import javax.print.DocFlavor.URL;
 import javax.swing.JButton;
 
 import com.jfoenix.controls.JFXButton;
@@ -96,8 +98,9 @@ public class HrHomePageController {
     		Title.setStyle("-fx-font-size:36px");
     		TitlePane.setStyle("-fx-background-color:#4250EB");
     		Breadcrumb.setText("/HOME/HR/PERSONALINFO");
+
     		
-    		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/JavaJdbcTest/src/verticalMenuPersonalInfo/PersonalInfo.fxml"));
+    		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("../src/verticalMenuPersonalInfo/PersonalInfo.fxml"));
     		
     	    mainPane.getChildren().add(fxmlLoader.load());
     	    
