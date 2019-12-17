@@ -492,6 +492,31 @@ int rs1;
 				   		}
 					return elocal;
 		}
+			// function to fetch the leave balance called by payrollinfocontroller
+			public Employee fetchPayRollInfo(Employee e)throws SQLException, ClassNotFoundException{
+				Employee elocal = new Employee();
+				try {
+					System.out.println("Inside fetchLeaveBalance function");
+					Connection Con = MySQLConnUtils.getMySQLConnection();
+					String sql = "SELECT SALARY, BONUS FROM PAYROLL WHERE EMP_ID = ?";
+					PreparedStatement ps = Con.prepareStatement(sql);
+					System.out.println("Passed login NAME is "+e.getEMP_ID());
+					ps.setString(1, String.valueOf(e.getEMP_ID()));
+					ResultSet rs= ps.executeQuery();
+					while(rs.next()){
+						elocal.setC_SALARY(Float.parseFloat(rs.getString("SALARY")));
+						System.out.println("SALARY is "+elocal.getC_SALARY());
+						elocal.setBONUS(Float.parseFloat(rs.getString("BONUS")));
+						System.out.println("Bonus is "+elocal.getBONUS());
+						}
+					rs.close();
+					Con.close();
+					}
+				catch(SQLException ex) {
+					  	System.out.println(ex); 
+				   		}
+					return elocal;
+		}
 			// function to fetch the asset details and seat number balance called by AssetInfoController
 			public Employee fetchAssetInfo(Employee e)throws SQLException, ClassNotFoundException{
 				Employee elocal = new Employee();
@@ -622,5 +647,49 @@ int rs1;
 //			      }
 //			      return list;
 //			   }
+			
+			//Testing new function to view the list of employees
+			public ObservableList<Employee> getEmpList() throws ClassNotFoundException, SQLException{
+				String sql = "Select * from Employee";
+				ObservableList<Employee> emplist = FXCollections.observableArrayList();
+				Connection Con = MySQLConnUtils.getMySQLConnection();
+		    	Statement stmt = Con.createStatement();
+		    	ResultSet rs = stmt.executeQuery(sql);
+		    	while(rs.next()) {
+		    		Employee e = new Employee();
+			    	e.setEMP_ID(rs.getInt("EMP_ID"));
+			    	e.setFNAME(rs.getString("FNAME"));
+			    	e.setMNAME(rs.getString("MNAME"));
+			    	e.setLNAME(rs.getString("LNAME"));
+			    	e.setC_Branch(rs.getString("C_BRANCH"));
+			    	e.setC_STATUS(rs.getString("C_STATUS"));
+			    	e.setC_PROJ(Integer.parseInt(rs.getString("C_PROJ")));
+			    	emplist.add(e);
+		    		
+		    	}
+		    	return emplist;
+				
+			}
+			public ObservableList<Employee> getEmpListSearchFname(String name) throws ClassNotFoundException, SQLException{
+				String sql ="Select * from Employee where FNAME like '%" + name + "%'";
+				ObservableList<Employee> emplist = FXCollections.observableArrayList();
+				Connection Con = MySQLConnUtils.getMySQLConnection();
+		    	Statement stmt = Con.createStatement();
+		    	ResultSet rs = stmt.executeQuery(sql);
+		    	while(rs.next()) {
+		    		Employee e = new Employee();
+			    	e.setEMP_ID(rs.getInt("EMP_ID"));
+			    	e.setFNAME(rs.getString("FNAME"));
+			    	e.setMNAME(rs.getString("MNAME"));
+			    	e.setLNAME(rs.getString("LNAME"));
+			    	e.setC_Branch(rs.getString("C_BRANCH"));
+			    	e.setC_STATUS(rs.getString("C_STATUS"));
+			    	e.setC_PROJ(Integer.parseInt(rs.getString("C_PROJ")));
+			    	emplist.add(e);
+		    		
+		    	}
+		    	return emplist;
+				
+			}
 }
 

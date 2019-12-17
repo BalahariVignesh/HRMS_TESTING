@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -13,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HrManagerPages.SearchEmployeePage">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="verticalMenuPersonalInfo.EmployeeListController">
    <children>
       <VBox prefHeight="112.0" prefWidth="900.0" style="-fx-background-color: #334CFF;">
          <children>
@@ -39,6 +40,14 @@
                         <Insets left="20.0" />
                      </GridPane.margin>
                   </Text>
+                  <JFXButton fx:id="CLOSE" onAction="#CloseWindow" text="X" textFill="#f8f7f7" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="630.0" top="-80.0" />
+                     </GridPane.margin>
+                  </JFXButton>
                </children>
             </GridPane>
          </children>
@@ -53,12 +62,12 @@
          <children>
             <TableView fx:id="EmployeeSearchList" prefHeight="200.0" prefWidth="200.0">
               <columns>
-                <TableColumn fx:id="EmployeeId" prefWidth="145.0" text="EMPLOYEE ID" />
-                <TableColumn fx:id="FirstName" prefWidth="123.0" text="FIRST NAME" />
-                  <TableColumn fx:id="LastName" prefWidth="123.0" text="LAST NAME" />
-                  <TableColumn fx:id="Branch" prefWidth="123.0" text="BRANCH" />
-                  <TableColumn fx:id="Status" prefWidth="123.0" text="STATUS" />
-                  <TableColumn fx:id="Project" prefWidth="123.0" text="PROJECT" />
+                <TableColumn fx:id="EmployeeIdCol" prefWidth="145.0" text="EMPLOYEE ID" />
+                <TableColumn fx:id="FirstNameCol" prefWidth="123.0" text="FIRST NAME" />
+                  <TableColumn fx:id="LastNameCol" prefWidth="123.0" text="LAST NAME" />
+                  <TableColumn fx:id="BranchCol" prefWidth="123.0" text="BRANCH" />
+                  <TableColumn fx:id="StatusCol" prefWidth="123.0" text="STATUS" />
+                  <TableColumn fx:id="ProjectCol" prefWidth="123.0" text="PROJECT" />
                   <TableColumn fx:id="UpdateBtn" prefWidth="119.0" text="UPDATE" />
               </columns>
                <GridPane.margin>
