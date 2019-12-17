@@ -138,6 +138,7 @@ public class AddNewEmployeePageController{
   	    int result = t.insertEmployee(e);
   	    if(result>0) {
   	    	//code to open second window of insert and close this window
+  	    	//
   	    }
   	    else {
   	    	//ask to reinsert the values, this window should not close
