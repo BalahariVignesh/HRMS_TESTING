@@ -145,6 +145,12 @@ public class AddNewEmployeePageController{
   	    int result = eresult.getRs();
   	    epass.setPass_ssn(eresult.getPass_ssn());
   	    if(result>0) {
+  	    	/////////////////////////////
+  	        // get a handle to the stage
+  	        Stage stage1 = (Stage) NewEmployeeData.getScene().getWindow();
+  	        // do what you have to do
+  	        stage1.close();
+  	        /////////////////////////////
   	    	//code to open second window of insert and close this window
   	    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/verticalMenuPersonalInfo/AddNewEmployeePage2.fxml"));
   		    Parent root1 = (Parent) fxmlLoader.load();
