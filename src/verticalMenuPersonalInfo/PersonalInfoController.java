@@ -50,8 +50,9 @@ public class PersonalInfoController {
 
 	    @FXML
 	    private JFXButton TEST;
-//	    @FXML
-//	    private JFXTextField GENDER;
+	    
+	    @FXML
+	    private JFXTextField GENDER;
 
 	    @FXML
 	    void CancelPinfo(ActionEvent event) {
