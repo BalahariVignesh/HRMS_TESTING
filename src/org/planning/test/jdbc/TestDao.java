@@ -894,5 +894,31 @@ int rs1;
 				   		}
 					return rs;
 			}
+			//function for setting employee access type into logon table
+			//4 parameters are there in logon table
+			public int setlogon(Employee e)throws SQLException, ClassNotFoundException{
+				Employee elocal = new Employee();
+				try {
+					System.out.println("Inside edit OFFICE contact edit function");
+					Connection Con = MySQLConnUtils.getMySQLConnection();
+					System.out.println("Passed login NAME is "+e.getEMP_ID());
+					String sql = "INSERT INTO LOGON (EMP_ID,ACC_ID,PSW) VALUE (?,?,?)";
+					System.out.println("Inserting office contact");
+					PreparedStatement ps1 = Con.prepareStatement(sql);
+					ps1.setString(1, String.valueOf(e.getEMP_ID()));
+					System.out.println("printing from testdao"+e.getACC_type());
+					ps1.setString(1,e.getACC_type());
+					ps1.setString(3,"123456");
+					rs1 = ps1.executeUpdate();
+					return rs1;
+					
+					//rs.close();
+					//Con.close();
+					}
+				catch(SQLException ex) {
+				  	System.out.println(ex); 
+				   		}
+					return rs;
+			}
 }
 

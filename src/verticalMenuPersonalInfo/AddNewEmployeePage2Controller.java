@@ -11,6 +11,7 @@ import com.jfoenix.controls.JFXTextField;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 import loginController.LoginController;
@@ -91,40 +92,40 @@ public class AddNewEmployeePage2Controller {
 	  	    e.setOFFICIAL_ZIP(Integer.parseInt(NewZip.getText()));
 	  	    int add_update = t.editofficeaddressinfo(e);
 	  	    if(add_update==1) {
-	  	    	System.out.println("address succcess");
+	  	    	System.out.println("official address succcess");
 	  	    }
 	  	    else
 	  	    {
-	  	    	System.out.println("address not succcess");
+	  	    	System.out.println("officialaddress not succcess");
 	  	    }
 	  	    e.setOCONTACT(Integer.parseInt(NewOfficeContact.getText()));
 	  	    int contact_update = t.editofficecontact(e);
 	  	    if(contact_update==1) {
-	  	    	System.out.println("contact succcess");
+	  	    	System.out.println("official contact succcess");
 	  	    }
 	  	    else
 	  	    {
-	  	    	System.out.println("contact not succcess");
+	  	    	System.out.println("official contact not succcess");
 	  	    }
 	  	    e.setOFFICIAL_EMAIL(NewOfficeEmail.getText());
 	  	    int contact_email_update = t.editofficeemail(e);
 	  	    if(contact_email_update==1) {
-	  	    	System.out.println("email succcess");
+	  	    	System.out.println("official email succcess");
 	  	    }
 	  	    else
 	  	    {
-	  	    	System.out.println("email not succcess");
+	  	    	System.out.println("official email not succcess");
 	  	    }
 	  	  	e.setC_LEVEL(Integer.parseInt(NewLevel.getText()));
 	  	  	e.setC_Branch(NewBranch.getText());
 	  	  	e.setC_STATUS(NewStatus.getText());
 	  	    int hr_update = t.hrlog(e);
 	  	    if(hr_update==1) {
-	  	    	System.out.println("level succcess");
+	  	    	System.out.println("hrlog succcess");
 	  	    }
 	  	    else
 	  	    {
-	  	    	System.out.println("level not succcess");
+	  	    	System.out.println("hrlog not succcess");
 	  	    }
 	  	    
 	  	    int levelupdate = t.levelupdate(e);
@@ -135,7 +136,32 @@ public class AddNewEmployeePage2Controller {
 	  	    {
 	  	    	System.out.println("level not succcess");
 	  	    }
-	 
+	  	    
+	  	  RadioButton access_type = (RadioButton) emp_type.getSelectedToggle();
+	  	  String access_type_value = access_type.getText();
+	  	  
+	  	  if(access_type_value.matches("HR")) {
+	  		 access_type_value="AC_HR";
+	  	  }
+	  	  	else if(access_type_value.matches("EMPLOYEE")){
+	  	  	access_type_value="AC_EMP";
+	  	  }
+	  	  	else if(access_type_value.matches("MANAGER")){
+	  	  	access_type_value=""; 
+	  	  }
+	  		else if(access_type_value.matches("PMO")){
+	  		access_type_value="AC_PMO";
+	  	  }
+	  	  System.out.println("Printing from controller 2, access type is"+access_type_value);
+	  	  e.setACC_type(access_type_value);
+	  	  int logon_update = t.setlogon(e);
+	  	  if(logon_update==1) {
+	  		  System.out.println("login succcess");
+	  	  }
+	  	  else
+	  	  {
+	  		  System.out.println("login not succcess");
+	  	  }
 	  	    //INSERT CODE HERE FOR CLOSING THE WINDOW AFTER ALL UPDATE
 	  	    /////////////////////////////
 	  	    // get a handle to the stage
@@ -143,6 +169,7 @@ public class AddNewEmployeePage2Controller {
 	  	    // do what you have to do
 	  	    stage1.close();
 	  	    /////////////////////////////
+	  	    
 	    }
 	    
 	    @FXML
