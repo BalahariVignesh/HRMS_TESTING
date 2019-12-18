@@ -922,5 +922,53 @@ int rs1;
 				   		}
 					return rs;
 			}
+			//function for inserting branch
+			public int insertbranch(Employee e)throws SQLException, ClassNotFoundException{
+				//Employee elocal = new Employee();
+				try {
+					System.out.println("Inside branch insert function");
+					Connection Con = MySQLConnUtils.getMySQLConnection();
+					System.out.println("Passed login NAME is "+e.getEMP_ID());
+					String sql = "INSERT INTO BRANCH(EMP_ID,BRANCH_ID,S_DATE) VALUE (10000002, 'B_M', curdate()); ";
+					System.out.println("Inserting office contact");
+					PreparedStatement ps1 = Con.prepareStatement(sql);
+					ps1.setString(1, String.valueOf(e.getEMP_ID()));
+					ps1.setString(2,e.getC_Branch());
+					java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+					ps1.setString(3,String.valueOf(date));
+					rs1 = ps1.executeUpdate();
+					return rs1;
+					
+					//rs.close();
+					//Con.close();
+					}
+				catch(SQLException ex) {
+				  	System.out.println(ex); 
+				   		}
+					return rs;
+			}
+			//function for inserting status
+			public int insertstatus(Employee e)throws SQLException, ClassNotFoundException{
+				try {
+					System.out.println("Inside status insert function");
+					Connection Con = MySQLConnUtils.getMySQLConnection();
+					System.out.println("Passed login NAME is "+e.getEMP_ID());
+					String sql = "INSERT INTO STAT(EMP_ID,S_DATE,STAT_TYPE) VALUE (10000002, curdate(), 'S_I')";
+					System.out.println("Inserting office contact");
+					PreparedStatement ps1 = Con.prepareStatement(sql);
+					ps1.setString(1, String.valueOf(e.getEMP_ID()));
+					java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+					ps1.setString(2,String.valueOf(date));
+					ps1.setString(3,e.getC_STATUS());
+					rs1 = ps1.executeUpdate();
+					return rs1;
+					//rs.close();
+					//Con.close();
+					}
+				catch(SQLException ex) {
+				  	System.out.println(ex); 
+				   		}
+					return rs;
+			}
 }
 

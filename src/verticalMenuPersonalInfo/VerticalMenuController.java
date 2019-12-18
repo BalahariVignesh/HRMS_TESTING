@@ -289,7 +289,7 @@ public class VerticalMenuController {
     		mainPane.getChildren().clear();
     		UserIcon.setVisible(false);
     		welcomeTitle.setVisible(false);
-    		Title.setText("PERSONAL INFORMATION of "+epass.getEMP_ID());
+    		Title.setText("PERSONAL INFORMATION");
     		Title.setStyle("-fx-font-size:36px");
     		TitlePane.setStyle("-fx-background-color:#4250EB");
     		Breadcrumb.setText("/HOME/PERSONALINFO");
