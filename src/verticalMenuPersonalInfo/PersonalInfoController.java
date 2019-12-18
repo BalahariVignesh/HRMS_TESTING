@@ -50,6 +50,8 @@ public class PersonalInfoController {
 
 	    @FXML
 	    private JFXButton TEST;
+//	    @FXML
+//	    private JFXTextField GENDER;
 
 	    @FXML
 	    void CancelPinfo(ActionEvent event) {
@@ -81,6 +83,8 @@ public class PersonalInfoController {
       	    DOB.setText(String.valueOf(enew.getDOB()));
       	    SSN.setText(String.valueOf(enew.get_sno()));
       	    MaritalStatus.setText(enew.getMAR());
+      	    //add fxml textfield gender
+      	    GENDER.setText(enew.getGENDER());
 	    }
 
 
