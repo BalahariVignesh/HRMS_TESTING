@@ -43,8 +43,7 @@ int rs1;
 				try {
 					System.out.println("Inside fetch function");
 					Connection Con = DriverManager.getConnection("jdbc:mysql://localhost:3307/hr_database","root","root");
-					//Removed DOB from the insert query as DOB typecasting is pending
-					String sql = "SELECT * FROM EMPLOYEE WHERE EMP_ID=?";
+					String sql = "SELECT EMPLOYEE.FNAME, EMPLOYEE.MNAME, EMPLOYEE.LNAME, EMPLOYEE.DOB, (SELECT VAL FROM TYPETABLE WHERE TYPE_ID = EMPLOYEE.GENDER) AS 'GENDER', EMPLOYEE.SSN, TYPETABLE.VAL AS 'MAR' FROM EMPLOYEE LEFT OUTER JOIN TYPETABLE ON EMPLOYEE.MAR = TYPETABLE.TYPE_ID WHERE EMP_ID =?";
 					//String sqltest = "INSERT INTO EMPLOYEE (Fname, Mname, Lname, DOB, SSN, C_LEVEL, C_BRANCH, C_STATUS, C_SALARY, RATING, C_MAN, C_PROJ, COUNTRY, CITY, ZIP, CONTACT, EMAIL) VALUE (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 					PreparedStatement ps = Con.prepareStatement(sql);
 					System.out.println("Passed empid is "+e.getEMP_ID());
@@ -60,6 +59,8 @@ int rs1;
 						System.out.println("LNAME is "+rs.getString("LNAME"));
 						elocal.setDOB(Date.valueOf(rs.getString("DOB")));
 						System.out.println("DOB is "+rs.getString("DOB"));
+						elocal.setGENDER(rs.getString("GENDER"));
+						System.out.println("Gender is"+rs.getString("GENDER"));
 						elocal.set_sno(Integer.parseInt(rs.getString("SSN")));
 						System.out.println("ssn is "+rs.getString("SSN"));
 						elocal.setMAR(rs.getString("MAR"));
