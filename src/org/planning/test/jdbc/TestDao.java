@@ -992,5 +992,30 @@ int rs1;
 				   		}
 					return rs;
 			}
+			public int applyleave(Employee e)throws SQLException, ClassNotFoundException{
+				//Employee elocal = new Employee();
+					try {
+						System.out.println("Inside apply leave function");
+						Connection Con = MySQLConnUtils.getMySQLConnection();
+						String sql = "INSERT INTO LEAVE_HIS (EMP_ID, S_DATE, E_DATE, L_TYPE, STAT, MAN_ID) VALUE (?, ?, ?, ?, ?, ( select C_MAN FROM EMPLOYEE WHERE EMP_ID = ?))";
+						PreparedStatement ps = Con.prepareStatement(sql);
+						System.out.println("Passed login NAME is "+e.getEMP_ID());
+						ps.setString(1, String.valueOf(e.getEMP_ID()));
+						ps.setString(2, String.valueOf(e.getSTART_DATE()));
+						ps.setString(3, String.valueOf(e.getEND_DATE()));
+						ps.setString(4, e.getLEAVE_TYPE());
+						String s = "LS_RE";
+						ps.setString(5, s);
+						ps.setString(6, String.valueOf(e.getEMP_ID()));
+						rs= ps.executeUpdate();
+						
+						return rs;
+						//Con.close();
+						}
+						catch(SQLException ex) {
+						  	System.out.println(ex); 
+						  		}
+						return rs;
+				}
 }
 

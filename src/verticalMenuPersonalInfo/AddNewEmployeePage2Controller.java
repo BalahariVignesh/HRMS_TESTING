@@ -60,9 +60,6 @@ public class AddNewEmployeePage2Controller {
 	    private JFXRadioButton EMPLOYEE;
 
 	    @FXML
-	    private JFXRadioButton MANAGER;
-
-	    @FXML
 	    private JFXRadioButton PMO;
 	    
 	    @FXML
@@ -146,10 +143,7 @@ public class AddNewEmployeePage2Controller {
 	  	  	else if(access_type_value.matches("EMPLOYEE")){
 	  	  	access_type_value="AC_EMP";
 	  	  }
-	  	  	else if(access_type_value.matches("MANAGER")){
-	  	  	access_type_value=""; 
-	  	  }
-	  		else if(access_type_value.matches("PMO")){
+	  	  	else if(access_type_value.matches("PMO")){
 	  		access_type_value="AC_PMO";
 	  	  }
 	  	  System.out.println("Printing from controller 2, access type is"+access_type_value);
@@ -176,7 +170,7 @@ public class AddNewEmployeePage2Controller {
 	    public void initialize() {
 	    	HR.setToggleGroup(emp_type);
 	    	EMPLOYEE.setToggleGroup(emp_type);
-	    	MANAGER.setToggleGroup(emp_type);
+	    	
 	    	PMO.setToggleGroup(emp_type);
 	    	
 	    }

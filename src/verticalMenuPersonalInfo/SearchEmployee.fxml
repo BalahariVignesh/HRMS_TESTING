@@ -49,7 +49,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                      <GridPane.margin>
-                        <Insets left="980.0" top="-90.0" />
+                        <Insets left="1260.0" top="-90.0" />
                      </GridPane.margin>
                   </JFXButton>
                </children>

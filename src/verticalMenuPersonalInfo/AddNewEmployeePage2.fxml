@@ -267,14 +267,9 @@
                         <Insets left="80.0" top="-20.0" />
                      </VBox.margin>
                   </JFXRadioButton>
-                  <JFXRadioButton fx:id="MANAGER" layoutX="10.0" layoutY="527.0" text="MANAGER">
-                     <VBox.margin>
-                        <Insets left="190.0" top="-21.0" />
-                     </VBox.margin>
-                  </JFXRadioButton>
                   <JFXRadioButton fx:id="PMO" layoutX="190.0" layoutY="541.0" text="PMO">
                      <VBox.margin>
-                        <Insets left="300.0" top="-21.0" />
+                        <Insets left="200.0" top="-21.0" />
                      </VBox.margin>
                   </JFXRadioButton>
                </children>

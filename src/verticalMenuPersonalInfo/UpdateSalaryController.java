@@ -59,6 +59,10 @@ public class UpdateSalaryController {
   	    if(hr_update==1)
   	    {
   	    	System.out.println("salary hr Success");
+	        // get a handle to the stage
+	        Stage stage = (Stage) CLOSE.getScene().getWindow();
+	        // do what you have to do
+	        stage.close();
   	    }
   	    else
   	    {

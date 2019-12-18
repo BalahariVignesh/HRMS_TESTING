@@ -58,6 +58,10 @@ public class UpdateLevelController {
 	  	    if(hr_update==1)
 	  	    {
 	  	    	System.out.println("level hr Success");
+		        // get a handle to the stage
+		        Stage stage = (Stage) CLOSE.getScene().getWindow();
+		        // do what you have to do
+		        stage.close();
 	  	    }
 	  	    else
 	  	    {

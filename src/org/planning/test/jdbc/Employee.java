@@ -96,7 +96,8 @@ public class Employee {
 	private float C_LEAVE;
 	private java.sql.Date START_DATE;
 	private java.sql.Date END_DATE;
-	
+	private String LEAVE_TYPE;
+	private String LEAVES_APPROVAL;
 	//assets
 	private int SEAT_NUMBER;
 	private int[] ASSET_NUMBER;
@@ -539,6 +540,18 @@ public String getSearchParam() {
 	}
 	public void setRs(int rs) {
 		this.rs = rs;
+	}
+	public String getLEAVE_TYPE() {
+		return LEAVE_TYPE;
+	}
+	public void setLEAVE_TYPE(String lEAVE_TYPE) {
+		LEAVE_TYPE = lEAVE_TYPE;
+	}
+	public String getLEAVES_APPROVAL() {
+		return LEAVES_APPROVAL;
+	}
+	public void setLEAVES_APPROVAL(String lEAVES_APPROVAL) {
+		LEAVES_APPROVAL = lEAVES_APPROVAL;
 	}
 	//////////////////////////////////////////////////////////////
 	public int getIdProperty() {

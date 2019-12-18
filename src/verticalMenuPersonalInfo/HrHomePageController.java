@@ -134,7 +134,7 @@ public class HrHomePageController {
 	    		Title.setText("OFFICE");
 	    		Title.setStyle("-fx-font-size:36px");
 	    		TitlePane.setStyle("-fx-background-color:#4250EB");
-	    		Breadcrumb.setText("/HOME/OFFICE");
+	    		Breadcrumb.setText("/HOME/HR/OFFICE");
 	    		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/verticalMenuPersonalInfo/OfficeInfo.fxml"));
 	    		mainPane.getChildren().add(fxmlLoader.load());
 	    	}
@@ -145,7 +145,7 @@ public class HrHomePageController {
 	    		Title.setText("PAYROLL");
 	    		Title.setStyle("-fx-font-size:36px");
 	    		TitlePane.setStyle("-fx-background-color:#4250EB");
-	    		Breadcrumb.setText("/HOME/PAYROLL");
+	    		Breadcrumb.setText("/HOME/HR/PAYROLL");
 	    		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/verticalMenuPersonalInfo/PayrollInfo.fxml"));
 	    		mainPane.getChildren().add(fxmlLoader.load());
 	    	}
@@ -156,7 +156,7 @@ public class HrHomePageController {
 	    		Title.setText("ASSETS");
 	    		Title.setStyle("-fx-font-size:36px");
 	    		TitlePane.setStyle("-fx-background-color:#4250EB");
-	    		Breadcrumb.setText("/HOME/ASSETS");
+	    		Breadcrumb.setText("/HOME/HR/ASSETS");
 	    		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/verticalMenuPersonalInfo/AssetsInfo.fxml"));
 	    		mainPane.getChildren().add(fxmlLoader.load());
 	    	}
@@ -167,7 +167,7 @@ public class HrHomePageController {
 	    		Title.setText("EDUCATIONAL");
 	    		Title.setStyle("-fx-font-size:36px");
 	    		TitlePane.setStyle("-fx-background-color:#4250EB");
-	    		Breadcrumb.setText("/HOME/EDUCATIONAL");
+	    		Breadcrumb.setText("/HOME/HR/EDUCATIONAL");
 	    		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/verticalMenuPersonalInfo/EducationalInfo.fxml"));
 	    		mainPane.getChildren().add(fxmlLoader.load());
 	    	}
@@ -178,7 +178,7 @@ public class HrHomePageController {
 	    		Title.setText("LEAVES");
 	    		Title.setStyle("-fx-font-size:36px");
 	    		TitlePane.setStyle("-fx-background-color:#4250EB");
-	    		Breadcrumb.setText("/HOME/LEAVES");
+	    		Breadcrumb.setText("/HOME/HR/LEAVES");
 	    		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/verticalMenuPersonalInfo/LeaveInfo.fxml"));
 	    		mainPane.getChildren().add(fxmlLoader.load());
 	    	}
@@ -186,10 +186,10 @@ public class HrHomePageController {
 	    	{
 	    		mainPane.getChildren().clear();
 	    		UserIcon.setVisible(false);
-	    		Title.setText("LEAVES");
+	    		Title.setText("HR OPERATIONS");
 	    		Title.setStyle("-fx-font-size:36px");
 	    		TitlePane.setStyle("-fx-background-color:#4250EB");
-	    		Breadcrumb.setText("/HOME/LEAVES");
+	    		Breadcrumb.setText("/HOME/HR/HROPERATIONS");
 	    		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/verticalMenuPersonalInfo/HrOperations.fxml"));
 	    		mainPane.getChildren().add(fxmlLoader.load());
 	    	}
