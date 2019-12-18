@@ -3,6 +3,7 @@ package org.planning.test.jdbc;
 import java.sql.*;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javafx.collections.FXCollections;
@@ -849,7 +850,7 @@ int rs1;
 					System.out.println("Inside edit OFFICE hr log edit function");
 					Connection Con = MySQLConnUtils.getMySQLConnection();
 					System.out.println("Passed login NAME is "+e.getEMP_ID());
-					String sql = "insert into HR_LOG (EMP_ID , LEV, BRANCH, STAT,SALARY, CHANGE_TS, CHANGED_BY) VALUES (?,?,?,?,?,?,?)";
+					String sql = "insert into HR_LOG (EMP_ID , LEV, BRANCH, STAT,SALARY, CHANGE_TS, CHANGED_BY) VALUES (?,?,?,?,?,current_timestamp,?)";
 					System.out.println("Inserting HRLOG level");
 					PreparedStatement ps1 = Con.prepareStatement(sql);
 					ps1.setString(1, String.valueOf(e.getEMP_ID()));
@@ -857,8 +858,8 @@ int rs1;
 					ps1.setString(3,e.getC_Branch());
 					ps1.setString(4, e.getC_STATUS());
 					ps1.setString(5,String.valueOf(0));
-					ps1.setString(6, "curdate()");
-					ps1.setInt(7,e.getPass_ssn());//here alone hr id is passed
+					//ps1.setString(6, "");
+					ps1.setInt(6,e.getPass_ssn());//here alone hr id is passed
 					rs1 = ps1.executeUpdate();
 					return rs1;
 					
@@ -882,7 +883,8 @@ int rs1;
 					PreparedStatement ps1 = Con.prepareStatement(sql);
 					ps1.setString(1, String.valueOf(e.getEMP_ID()));
 					ps1.setInt(2,e.getC_LEVEL());
-					ps1.setString(3,"curdate()");
+					java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+					ps1.setString(3,String.valueOf(date));
 					rs1 = ps1.executeUpdate();
 					return rs1;
 					
@@ -907,7 +909,7 @@ int rs1;
 					PreparedStatement ps1 = Con.prepareStatement(sql);
 					ps1.setString(1, String.valueOf(e.getEMP_ID()));
 					System.out.println("printing from testdao"+e.getACC_type());
-					ps1.setString(1,e.getACC_type());
+					ps1.setString(2,e.getACC_type());
 					ps1.setString(3,"123456");
 					rs1 = ps1.executeUpdate();
 					return rs1;
