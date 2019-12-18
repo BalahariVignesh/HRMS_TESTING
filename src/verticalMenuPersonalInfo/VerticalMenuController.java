@@ -367,18 +367,18 @@ public class VerticalMenuController {
     		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/verticalMenuPersonalInfo/AssetsInfo.fxml"));
     		mainPane.getChildren().add(fxmlLoader.load());
     	}
-    	else if(event.getSource() == EDUCATIONAL)
-    	{
-    		mainPane.getChildren().clear();
-    		UserIcon.setVisible(false);
-    		welcomeTitle.setVisible(false);
-    		Title.setText("EDUCATIONAL");
-    		Title.setStyle("-fx-font-size:36px");
-    		TitlePane.setStyle("-fx-background-color:#4250EB");
-    		Breadcrumb.setText("/HOME/EDUCATIONAL");
-    		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/verticalMenuPersonalInfo/EducationalInfo.fxml"));
-    		mainPane.getChildren().add(fxmlLoader.load());
-    	}
+    	//else if(event.getSource() == EDUCATIONAL)
+    	//{
+    	//	mainPane.getChildren().clear();
+    	//	UserIcon.setVisible(false);
+    	//	welcomeTitle.setVisible(false);
+    	//	Title.setText("EDUCATIONAL");
+    	//	Title.setStyle("-fx-font-size:36px");
+    	//	TitlePane.setStyle("-fx-background-color:#4250EB");
+    	//	Breadcrumb.setText("/HOME/EDUCATIONAL");
+    	//	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/verticalMenuPersonalInfo/EducationalInfo.fxml"));
+    	//	mainPane.getChildren().add(fxmlLoader.load());
+    	//}
     	else if(event.getSource() == LEAVES)
     	{
     		mainPane.getChildren().clear();

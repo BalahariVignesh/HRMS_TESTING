@@ -137,7 +137,12 @@ public class AddNewEmployeePage2Controller {
 	  	    }
 	 
 	  	    //INSERT CODE HERE FOR CLOSING THE WINDOW AFTER ALL UPDATE
-
+	  	    /////////////////////////////
+	  	    // get a handle to the stage
+	  	    Stage stage1 = (Stage) NewEmployeeData.getScene().getWindow();
+	  	    // do what you have to do
+	  	    stage1.close();
+	  	    /////////////////////////////
 	    }
 	    
 	    @FXML

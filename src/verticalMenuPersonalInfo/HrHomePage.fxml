@@ -73,14 +73,6 @@
                   <FontAwesomeIconView fill="#eee5e5" glyphName="HOURGLASS" size="20.0" />
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="EDUCATIONAL" alignment="CENTER" graphicTextGap="20.0" layoutX="10.0" layoutY="442.0" onAction="#handleClicks" prefHeight="44.0" prefWidth="230.0" style="-fx-background-color: #334CFF;" styleClass=".button" stylesheets="@../css/fullpackcss.css" text="EDUCATIONAL" textAlignment="CENTER">
-               <opaqueInsets>
-                  <Insets left="-1.0" />
-               </opaqueInsets>
-               <graphic>
-                  <FontAwesomeIconView fill="#eee5e5" glyphName="COPY" size="20.0" />
-               </graphic>
-            </JFXButton>
             <JFXButton fx:id="LEAVES" alignment="CENTER" graphicTextGap="20.0" layoutX="10.0" layoutY="499.0" onAction="#handleClicks" prefHeight="44.0" prefWidth="230.0" style="-fx-background-color: #334CFF;" styleClass=".button" stylesheets="@../css/fullpackcss.css" text="LEAVES" textAlignment="CENTER">
                <opaqueInsets>
                   <Insets left="-1.0" />
