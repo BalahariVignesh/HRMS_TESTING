@@ -22,6 +22,9 @@ public class HrOperationsController {
     private JFXButton UpdateEmployee_Btn;
     
     @FXML
+    private JFXButton ViewEmployee_Btn;
+    
+    @FXML
     void AddEmployeeData(ActionEvent event) throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/verticalMenuPersonalInfo/AddNewEmployeePage.fxml"));
 	    Parent root1 = (Parent) fxmlLoader.load();
@@ -34,7 +37,7 @@ public class HrOperationsController {
 
     @FXML
     void UdpdateEmployeeData(ActionEvent event) throws IOException {
-		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/verticalMenuPersonalInfo/SearchEmployee.fxml"));
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/verticalMenuPersonalInfo/UpdateEmployeePage.fxml"));
 	    Parent root1 = (Parent) fxmlLoader.load();
 	    Stage stage = new Stage();
 	    stage.initModality(Modality.APPLICATION_MODAL);
@@ -44,8 +47,14 @@ public class HrOperationsController {
     }
 
     @FXML
-    void ViewEmployeeData(ActionEvent event) {
-
+    void ViewEmployeeData(ActionEvent event) throws IOException {
+    		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/verticalMenuPersonalInfo/SearchEmployee.fxml"));
+    	    Parent root1 = (Parent) fxmlLoader.load();
+    	    Stage stage = new Stage();
+    	    stage.initModality(Modality.APPLICATION_MODAL);
+    	    stage.initStyle(StageStyle.UNDECORATED);
+    	    stage.setScene(new Scene(root1));  
+    	    stage.show();
     }
 
 }

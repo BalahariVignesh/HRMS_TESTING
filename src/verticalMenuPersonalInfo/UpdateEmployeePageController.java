@@ -1,10 +1,17 @@
 package verticalMenuPersonalInfo;
 
+import java.io.IOException;
+
 import com.jfoenix.controls.JFXButton;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class UpdateEmployeePageController {
 	@FXML
@@ -31,22 +38,46 @@ public class UpdateEmployeePageController {
     }
 
     @FXML
-    void UpdateBranch(ActionEvent event) {
-
+    void UpdateBranch(ActionEvent event) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/verticalMenuPersonalInfo/UpdateBranch.fxml"));
+	    Parent root1 = (Parent) fxmlLoader.load();
+	    Stage stage = new Stage();
+	    stage.initModality(Modality.APPLICATION_MODAL);
+	    stage.initStyle(StageStyle.UNDECORATED);
+	    stage.setScene(new Scene(root1));  
+	    stage.show();
     }
 
     @FXML
-    void UpdateLevel(ActionEvent event) {
-
+    void UpdateLevel(ActionEvent event) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/verticalMenuPersonalInfo/UpdateLevel.fxml"));
+	    Parent root1 = (Parent) fxmlLoader.load();
+	    Stage stage = new Stage();
+	    stage.initModality(Modality.APPLICATION_MODAL);
+	    stage.initStyle(StageStyle.UNDECORATED);
+	    stage.setScene(new Scene(root1));  
+	    stage.show();
     }
 
     @FXML
-    void UpdateSalary(ActionEvent event) {
-
+    void UpdateSalary(ActionEvent event) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/verticalMenuPersonalInfo/UpdateSalary.fxml"));
+	    Parent root1 = (Parent) fxmlLoader.load();
+	    Stage stage = new Stage();
+	    stage.initModality(Modality.APPLICATION_MODAL);
+	    stage.initStyle(StageStyle.UNDECORATED);
+	    stage.setScene(new Scene(root1));  
+	    stage.show();
     }
 
     @FXML
-    void UpdateStatus(ActionEvent event) {
-
+    void UpdateStatus(ActionEvent event) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/verticalMenuPersonalInfo/UpdateStatus.fxml"));
+	    Parent root1 = (Parent) fxmlLoader.load();
+	    Stage stage = new Stage();
+	    stage.initModality(Modality.APPLICATION_MODAL);
+	    stage.initStyle(StageStyle.UNDECORATED);
+	    stage.setScene(new Scene(root1));  
+	    stage.show();
     }
 }

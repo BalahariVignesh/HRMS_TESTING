@@ -70,6 +70,9 @@ public class PermanentAddressController {
     	int result = t.editpermanentaddressinfo(e);
     	if(result == 1) {
     		System.out.println("Updated the record successfully");
+    		Stage stage = (Stage) Cancel_Address_btn.getScene().getWindow();
+            // do what you have to do
+            stage.close();
     	}
     	else
     	{

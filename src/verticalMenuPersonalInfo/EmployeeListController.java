@@ -11,12 +11,10 @@ import com.jfoenix.controls.JFXButton;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
-import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
 import loginController.LoginController;
 
 public class EmployeeListController {
@@ -49,13 +47,8 @@ public class EmployeeListController {
     @FXML
     private JFXButton CLOSE;
     
-    @FXML
-    void CloseWindow(ActionEvent event) {
-        // get a handle to the stage
-        Stage stage = (Stage) CLOSE.getScene().getWindow();
-        // do what you have to do
-        stage.close();
-    }
+
+
     
     @FXML
     private void initialize() throws ClassNotFoundException, SQLException {
@@ -84,4 +77,11 @@ public class EmployeeListController {
 //      stage.show();
     	
     }
+//    @FXML
+//    void CloseWindow(ActionEvent event) {
+//        // get a handle to the stage
+//        Stage stage = (Stage) CLOSE.getScene().getWindow();
+//        // do what you have to do
+//        stage.close();
+//    }
 }

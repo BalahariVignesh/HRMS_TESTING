@@ -70,6 +70,9 @@ public class PresentAddressController {
     	int result = t.editpresentaddressinfo(e);
     	if(result == 1) {
     		System.out.println("Updated the record successfully");
+    		Stage stage = (Stage) CLOSE.getScene().getWindow();
+            // do what you have to do
+            stage.close();
     	}
     	else
     	{

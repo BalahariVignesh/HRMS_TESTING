@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -40,14 +39,6 @@
                         <Insets left="20.0" />
                      </GridPane.margin>
                   </Text>
-                  <JFXButton fx:id="CLOSE" onAction="#CloseWindow" text="X" textFill="#f8f7f7" GridPane.columnIndex="1">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets left="630.0" top="-80.0" />
-                     </GridPane.margin>
-                  </JFXButton>
                </children>
             </GridPane>
          </children>
